@@ -3,5 +3,11 @@ export interface IProduct {
     title: string,
     price: number,
     description: string,
-    image: string
+    image: string,
+    categories: ICategory
+}
+
+export interface ICategory {
+    id: number;
+    title: string
 }
