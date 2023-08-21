@@ -2,6 +2,7 @@ import React from 'react';
 import NavLink from './nav-link';
 import Link from 'next/link';
 import DarkModeToggle from '../darkmode/DarkModeToggle';
+import Sidebar from '../sidebar/side-bar';
 
 const links = [
     {
@@ -33,7 +34,7 @@ const links = [
 
 const NavBar = () => {
     return (
-        <header className="border-b p-4">
+        <header className="border-b py-4">
             <div className='container flex justify-between'>
                 <Link href="/" className='font-bold text-lg' >Nhà Sóc Store</Link>
                 <div className='hidden md:flex items-center gap-3'>
@@ -44,11 +45,8 @@ const NavBar = () => {
                         </NavLink>
                     ))}
                 </div>
-                <div className='block md:hidden lg:hidden'>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                </div>
+                <Sidebar />
+
             </div>
         </header>
     );
