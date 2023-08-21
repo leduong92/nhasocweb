@@ -34,7 +34,7 @@ const links = [
 const NavBar = () => {
     return (
         <header className="border-b p-4">
-            <div className='flex justify-between'>
+            <div className='container flex justify-between'>
                 <Link href="/" className='font-bold text-lg' >Nhà Sóc Store</Link>
                 <div className='hidden md:flex items-center gap-3'>
                     <DarkModeToggle />
