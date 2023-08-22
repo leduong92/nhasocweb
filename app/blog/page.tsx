@@ -1,8 +1,15 @@
+import BreadCrumb from '@/components/breadcrumb/bread-crumb'
 import React from 'react'
 
 const Page = () => {
     return (
-        <div>Blog</div>
+        <div>
+            <BreadCrumb router={`Blog`} />
+
+            <div>
+                Blog
+            </div>
+        </div>
     )
 }
 

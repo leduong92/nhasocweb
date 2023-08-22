@@ -1,9 +1,15 @@
-import React from 'react'
+import BreadCrumb from '@/components/breadcrumb/bread-crumb';
+import React from 'react';
 
 const Page = () => {
     return (
-        <div>Contact us</div>
-    )
-}
+        <div>
+            <BreadCrumb router={`Contact`} />
 
+            <div>
+                Contact
+            </div>
+        </div>
+    )
+};
 export default Page

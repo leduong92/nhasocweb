@@ -1,6 +1,7 @@
 import CategoryDropdownTrigger from '@/components/category-dropdown-menu/category-dropdown-trigger';
 import ProductCard from '@/components/product-card/product-card';
 import ProductImage from '@/components/product-image';
+import { SortCategoryMenu } from '@/components/sort-category/sort-category-menu';
 import { IProduct } from '@/util/constant';
 import Link from 'next/link';
 import React from 'react'
@@ -29,12 +30,15 @@ const page = async ({ params }: Props) => {
                     <span>{products.length} Results</span>
                 </div>
 
+                <div>
+                    <SortCategoryMenu />
+                </div>
+
                 <div className='md:hidden'>
                     <CategoryDropdownTrigger />
                 </div>
 
             </div>
-
             <ProductCard products={products} />
 
         </div>

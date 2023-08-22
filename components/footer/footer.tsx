@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const Footer = () => {
@@ -7,7 +8,7 @@ const Footer = () => {
                 <div className='flex flex-col md:grid grid-flow-row grid-cols-3 gap-5'>
                     <div className='flex flex-col gap-2'>
                         <span className='text-xl font-bold'>Nhà Sóc Store</span>
-                        <span>Site map</span>
+                        <Link href={`/site-map`}>Site map</Link>
                     </div>
                     <div>
                         <h1 className='text-xl font-bold'>Sản phẩm</h1>
@@ -22,14 +23,14 @@ const Footer = () => {
                     <div>
                         <h1 className='text-xl font-bold'>Chính sách</h1>
                         <ul className='flex flex-col gap-3 pt-3'>
-                            <li>About us</li>
+                            <Link href={`/about-us`}>About us</Link>
                             <li>Terms of service</li>
                             <li>Refund policy</li>
                         </ul>
                     </div>
                 </div>
                 <div className='flex items-center justify-center'>
-                    <span className='text-sm'>©2023 Nhà Sóc Store. All rights reserved.</span>
+                    <span className='text-sm'>©2023 <Link href={`/`}>Nhà Sóc Store</Link>. All rights reserved.</span>
                 </div>
             </div>
         </div>

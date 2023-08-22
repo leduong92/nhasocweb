@@ -1,3 +1,4 @@
+import CategoryDropdownTrigger from '@/components/category-dropdown-menu/category-dropdown-trigger';
 import ProductCard from '@/components/product-card/product-card';
 import { IProduct } from '@/util/constant';
 import React from 'react'
@@ -12,7 +13,19 @@ const Page = async () => {
     const products: IProduct[] = await getProducts();
 
     return (
-        <ProductCard products={products} />
+        <>
+            <div className='flex items-center justify-between pb-2'>
+                <div>
+                    <span>{products.length} Results</span>
+                </div>
+
+                <div className='md:hidden'>
+                    <CategoryDropdownTrigger />
+                </div>
+
+            </div>
+            <ProductCard products={products} />
+        </>
     )
 }
 

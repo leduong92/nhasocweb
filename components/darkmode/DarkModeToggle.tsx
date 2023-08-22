@@ -12,9 +12,10 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 import { Button } from "@/components/ui/button"
+import { useRouter } from 'next/navigation'
 
 const DarkModeToggle = () => {
-    const { setTheme } = useTheme()
+    const { setTheme } = useTheme();
 
     return (
         <DropdownMenu>

@@ -18,7 +18,7 @@ const ProductImage = ({ product, fill }: ProductImageProps) => {
                     alt={product.title}
                     fill
                     className={`object-contain duration-700 ease-in-out group-hover:opacity-75 ${loading
-                        ? "scale-110 blur-2xl grayscale"
+                        ? "scale-90 blur-xl grayscale"
                         : "scale-100 blur-0 grayscale-0"
                         }}`}
                     sizes='100vw'
@@ -34,7 +34,7 @@ const ProductImage = ({ product, fill }: ProductImageProps) => {
                     style={{ width: '100%', height: 'auto' }}
                     sizes='100vw'
                     className={`object-contain duration-700 ease-in-out group-hover:opacity-75 ${loading
-                        ? "scale-110 blur-2xl grayscale"
+                        ? "scale-90 blur-xl grayscale"
                         : "scale-100 blur-0 grayscale-0"
                         }}`}
                     onLoadingComplete={() => setLoading(false)}
