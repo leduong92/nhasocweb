@@ -2,19 +2,21 @@
 "use client"
 import Image from 'next/image'
 import React, { useState } from 'react'
+import { Button } from '../ui/button'
 
 type ImageProps = {
-    url: string,
+    imgUrl: string,
     base64: string,
     title: string,
+    url: string
 }
 
 const Slider = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const images: ImageProps[] = [
-        { url: "/11.jpg", base64: "", title: "Granola" },
-        { url: "/22.jpg", base64: "", title: "Hanh Nhan" },
-        { url: "/33.jpg", base64: "", title: "Hanh Nhan" },
+        { imgUrl: "/11.jpg", base64: "", title: "Granola", url: '/product-detail/1' },
+        { imgUrl: "/22.jpg", base64: "", title: "Hanh Nhan", url: '/product-detail/2' },
+        { imgUrl: "/33.jpg", base64: "", title: "Mix", url: '/product-detail/3' },
     ]
 
     const prevSlide = () => {
@@ -30,7 +32,7 @@ const Slider = () => {
                 {images.map((img, idx) => (
                     <div key={idx} className='flex duration-700 ease-in-out w-full relative' style={{ transform: `translateX(-${currentSlide * 100}vw)` }}>
                         <Image
-                            src={img.url}
+                            src={img.imgUrl}
                             title={img.title}
                             width={1448}
                             height={962}
@@ -38,8 +40,15 @@ const Slider = () => {
                             style={{ width: '100%', height: 'auto' }}
                             sizes='100vw'
                             priority
-                            className='object-cover w-screen h-full'
+                            className='object-cover w-screen h-full '
+
                         />
+
+                        <div className='flex flex-col absolute bottom-6 left-12 text-white gap-5 md:bottom-12 md:left-24 lg:bottom-36 lg:left-64'>
+                            <h1 className='font-bold text-4xl shadow-sm md:text-5xl lg:text-8xl animate-fadeInLeft'>{img.title}</h1>
+                            <span className='font-thin text-2xl text-white '>Lorem ipsum dolor sit amet consectetur adipisicing elit. ?</span>
+                            <button className='w-[200px] h-8 rounded border-none bg-blue-400/70 hover:bg-blue-500 active:ring-1 md:h-12 transition duration-700 ease-in-out '>SHOP NOW</button>
+                        </div>
                     </div>
 
                 ))}
