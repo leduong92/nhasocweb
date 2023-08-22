@@ -3,12 +3,12 @@ import { IProduct } from '@/util/constant'
 import Image from 'next/image'
 import React, { useState } from 'react'
 
-type FeaturedProps = {
+type ProductImageProps = {
     product: IProduct,
     fill?: boolean
 }
 
-const FeaturedImage = ({ product, fill }: FeaturedProps) => {
+const ProductImage = ({ product, fill }: ProductImageProps) => {
     const [loading, setLoading] = useState(true);
     return (
         <>
@@ -45,4 +45,4 @@ const FeaturedImage = ({ product, fill }: FeaturedProps) => {
     )
 }
 
-export default FeaturedImage
+export default ProductImage

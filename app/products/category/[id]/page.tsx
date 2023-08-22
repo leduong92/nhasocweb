@@ -1,4 +1,8 @@
+import CategoryDropdownTrigger from '@/components/category-dropdown-menu/category-dropdown-trigger';
+import ProductCard from '@/components/product-card/product-card';
+import ProductImage from '@/components/product-image';
 import { IProduct } from '@/util/constant';
+import Link from 'next/link';
 import React from 'react'
 
 type Props = {
@@ -18,14 +22,21 @@ const page = async ({ params }: Props) => {
     const products: IProduct[] = await getProduct(params.id);
 
     return (
-        <div>
-            {products.map((p) => (
-                <div key={p.id}>
-                    <p className='text-3xl'>{p.title}</p>
-                    <p className='mt-2'>${p.price}</p>
-                    <p className='mt-2'>{p.description}</p>
+        <div className='flex flex-col'>
+
+            <div className='flex items-center justify-between pb-2'>
+                <div>
+                    <span>{products.length} Results</span>
                 </div>
-            ))}
+
+                <div className='md:hidden'>
+                    <CategoryDropdownTrigger />
+                </div>
+
+            </div>
+
+            <ProductCard products={products} />
+
         </div>
     )
 }

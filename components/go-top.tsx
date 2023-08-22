@@ -27,11 +27,11 @@ const GotoTop = () => {
     return (
         <>
             {isVisible && (
-                <div className='flex items-center duration-700 ease-in-out hover:ease-in'>
+                <div className='flex items-center rounded-md'>
                     <button onClick={handleScrollTop}
-                        className='fixed rounded-xl bottom-24 right-5 h-12 w-8 text-center transition border-solid cursor-pointer bg-blue-300 hover:bg-blue-400 active:bg-blue-600'
+                        className='fixed rounded-md bottom-24 right-5 h-12 w-8 text-center cursor-pointer bg-blue-300 hover:bg-blue-400'
                     >
-                        <svg className='animate-bounce h-full w-full' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" >
+                        <svg className='h-full w-full text-gray-800' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" >
                             <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 6.75L12 3m0 0l3.75 3.75M12 3v18" />
                         </svg>
                     </button>
