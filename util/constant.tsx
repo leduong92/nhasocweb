@@ -4,10 +4,5 @@ export interface IProduct {
     price: number,
     description: string,
     image: string,
-    categories: ICategory
 }
 
-export interface ICategory {
-    id: number;
-    title: string
-}

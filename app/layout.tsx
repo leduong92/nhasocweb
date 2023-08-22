@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "./context/theme-provider";
 import Footer from "@/components/footer/footer";
+import GotoTop from "@/components/go-top";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
                     <NavBar />
                     <main>{children}</main>
                     <Footer />
+                    <GotoTop />
                 </ThemeProvider>
             </body>
         </html>

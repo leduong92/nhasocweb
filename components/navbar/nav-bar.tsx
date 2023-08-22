@@ -1,8 +1,8 @@
 import React from 'react';
-import NavLink from './nav-link';
 import Link from 'next/link';
 import DarkModeToggle from '../darkmode/DarkModeToggle';
 import Sidebar from '../sidebar/side-bar';
+import NavLink from '../nav-link';
 
 const links = [
     {
