@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/sheet"
 import Link from 'next/link'
 import DarkModeToggle from '../darkmode/DarkModeToggle'
+import LogoLink from '../logo-link/logo-link'
 
 const Sidebar = () => {
     return (
@@ -19,8 +20,10 @@ const Sidebar = () => {
                     </svg>
                 </SheetTrigger>
                 <SheetContent>
-                    <div className='font-bold'>Nhà Sóc Store</div>
-                    <div className='flex flex-col pt-2 gap-2'>
+
+                    <LogoLink />
+
+                    <div className='flex flex-col pt-2 gap-2 border-t'>
 
                         <Link href={`/`}><SheetTrigger>Home</SheetTrigger></Link>
                         <Link href={`/products`}><SheetTrigger>Sản phẩm</SheetTrigger></Link>

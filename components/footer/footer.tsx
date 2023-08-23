@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import React from 'react';
+import LogoLink from '../logo-link/logo-link';
 
 const Footer = () => {
     return (
         <div className="border-t mt-2">
             <div className='container flex flex-col gap-4 mt-2'>
                 <div className='flex flex-col md:grid grid-flow-row grid-cols-3 gap-5'>
-                    <div className='flex flex-col gap-2'>
-                        <span className='text-xl font-bold'>Nhà Sóc Store</span>
+                    <div className='flex flex-col gap-5'>
+                        <LogoLink />
                         <Link href={`/site-map`}>Site map</Link>
                     </div>
                     <div>

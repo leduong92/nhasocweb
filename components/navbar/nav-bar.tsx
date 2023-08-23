@@ -4,6 +4,8 @@ import DarkModeToggle from '../darkmode/DarkModeToggle';
 import Sidebar from '../sidebar/side-bar';
 import NavLink from '../nav-link';
 import CartModel from '../cart/cart-model';
+import Image from 'next/image';
+import LogoLink from '../logo-link/logo-link';
 
 const links = [
     {
@@ -35,9 +37,11 @@ const links = [
 
 const NavBar = () => {
     return (
-        <header className="border-b py-4">
+        <header className="border-b py-2">
             <div className='container flex items-center justify-between'>
-                <Link href="/" className='font-bold text-lg' >Nhà Sóc Store</Link>
+
+                <LogoLink />
+
                 <div className='hidden md:flex items-center gap-3'>
                     <DarkModeToggle />
                     {links.map((link) => (
