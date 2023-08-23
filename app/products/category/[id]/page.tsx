@@ -30,7 +30,7 @@ const page = async ({ params }: Props) => {
                     <span>{products.length} Results</span>
                 </div>
 
-                <div>
+                <div >
                     <SortCategoryMenu />
                 </div>
 

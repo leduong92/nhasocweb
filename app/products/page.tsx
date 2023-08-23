@@ -1,5 +1,6 @@
 import CategoryDropdownTrigger from '@/components/category-dropdown-menu/category-dropdown-trigger';
 import ProductCard from '@/components/product-card/product-card';
+import { SortCategoryMenu } from '@/components/sort-category-menu/sort-category-menu';
 import { IProduct } from '@/util/constant';
 import React from 'react'
 
@@ -14,9 +15,13 @@ const Page = async () => {
 
     return (
         <>
-            <div className='flex items-center justify-between pb-2'>
+            <div className='flex items-center justify-between '>
                 <div>
                     <span>{products.length} Results</span>
+                </div>
+
+                <div >
+                    <SortCategoryMenu />
                 </div>
 
                 <div className='md:hidden'>

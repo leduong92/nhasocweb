@@ -6,3 +6,9 @@ export interface IProduct {
     image: string,
 }
 
+export interface ICategory {
+    id: number,
+    categoryName: string,
+    url_code: string,
+    description: string
+}
