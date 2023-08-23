@@ -46,7 +46,7 @@ const Slider = () => {
 
                         <div className='flex flex-col absolute bottom-6 left-12 text-white gap-5 md:bottom-12 md:left-24 lg:bottom-36 lg:left-64'>
                             <h1 className='font-bold text-4xl shadow-sm md:text-5xl lg:text-8xl animate-fadeTopToBottom repeat-1 '>{img.title}</h1>
-                            <span className='font-thin text-2xl text-white animate-fadeLeftToRight  repeat-1'>Lorem ipsum dolor sit amet consectetur adipisicing elit. ?</span>
+                            <span className='font-thin text-2xl text-white line-clamp-1 leading-relaxed animate-fadeLeftToRight repeat-1'>Lorem ipsum dolor sit amet consectetur adipisicing elit. ?</span>
                             <button className='w-[200px] h-8 rounded border-none bg-blue-400/70 hover:bg-blue-500 active:ring-1 md:h-12 transition-all duration-700 ease-in-out animate-buttonScale '>SHOP NOW</button>
                         </div>
                     </div>

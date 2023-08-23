@@ -1,9 +1,14 @@
 import Link from 'next/link'
 import React from 'react'
 
-const BreadCrumb = ({ router }: { router: string }) => {
-    return (
+type Props = {
+    router?: string,
+    name?: string,
+    id?: string
+}
 
+const BreadCrumb = ({ router, name, id }: Props) => {
+    return (
         <div className='border-b'>
             <div className='container'>
                 <div className="py-2 flex items-center flex-wrap">
@@ -21,12 +26,29 @@ const BreadCrumb = ({ router }: { router: string }) => {
 
                             <span className="mx-2 h-auto text-gray-400 font-medium">/</span>
                         </li>
+                        {id
 
-                        <li className="inline-flex items-center">
-                            <Link href="/products" className=" hover:text-blue-500  text-blue-500">
-                                {router}
-                            </Link>
-                        </li>
+                            ? <>
+                                <li className="inline-flex items-center">
+                                    <Link href={`/products`} className=" hover:text-blue-500 ">
+                                        {router}
+                                    </Link>
+
+                                    <span className="mx-2 h-auto text-gray-400 font-medium">/</span>
+                                </li>
+                                <li className="inline-flex items-center">
+                                    <Link href={`product-detail/${id}`} className=" hover:text-blue-500  text-blue-500">
+                                        {name}
+                                    </Link>
+                                </li>
+                            </>
+                            : <li className="inline-flex items-center">
+                                <Link href={`/${router}`} className=" hover:text-blue-500  text-blue-500">
+                                    {name}
+                                </Link>
+                            </li>
+                        }
+
                     </ul>
                 </div>
             </div>

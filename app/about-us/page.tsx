@@ -4,7 +4,7 @@ import React from 'react';
 const Page = () => {
     return (
         <div>
-            <BreadCrumb router={`Blog`} />
+            <BreadCrumb router={`about-us`} name='About us' />
 
             <div>
                 About

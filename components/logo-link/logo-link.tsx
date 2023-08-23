@@ -4,14 +4,14 @@ import React from 'react'
 
 const LogoLink = () => {
     return (
-        <Link href="/" className='font-bold text-lg'>
+        <Link href="/" className='font-bold text-lg w-44 md:w-56 lg:w-64'>
             <Image
                 src={"/logo.svg"}
                 alt='Nhà Sóc Store'
                 title='Nhà Sóc Store'
-                width={200}
+                width={300}
                 height={100}
-                style={{ width: '70%', height: 'auto' }}
+                style={{ height: 'auto' }}
                 sizes='100vw'
             />
         </Link>

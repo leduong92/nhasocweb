@@ -30,7 +30,7 @@ const data = [
 const Page = () => {
     return (
         <div>
-            <BreadCrumb router={`Blog`} />
+            <BreadCrumb router={`blog`} name='Blogs' />
 
             <div className='container'>
                 <h1 className='capitalize font-bold text-[25px] py-2'>Our Blog</h1>
@@ -38,8 +38,10 @@ const Page = () => {
                 {data.map((item) => (
                     <div key={item.id} className='flex flex-col rounded-md border shadow-sm my-3 p-5 gap-3 md:flex-row md:odd:flex-row-reverse xl:items-center'>
                         <div className='order-2 md:order-1 pr-1 xl:flex-1 flex-col items-center text-left' >
-                            <h1 className='font-bold'>{item.title}</h1>
-                            <p className='text-justify'>{item.desc}</p>
+                            <h1 className='font-bold text-2xl my-3'>{item.title}</h1>
+                            <p className='text-justify my-3 first-line:tracking-widest first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900 first-letter:mr-3 first-letter:float-left'>
+                                {item.desc}
+                            </p>
                             <Button className='mt-2'>See More</Button>
                         </div>
                         <div className='order-1 md:order-2 xl:flex-1'>

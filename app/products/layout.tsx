@@ -14,7 +14,8 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
 
     return (
         <>
-            <BreadCrumb router={`Products`} />
+            <BreadCrumb router={`products`} name='Products' />
+
             <div className='container py-2 md:flex gap-5'>
                 <ul className='hidden text-sm md:flex flex-col flex-auto w-64'>
                     <h1 className='font-bold text-[19px] pt-1'>Categories</h1>

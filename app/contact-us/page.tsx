@@ -4,7 +4,7 @@ import React from 'react';
 const Page = () => {
     return (
         <div>
-            <BreadCrumb router={`Contact`} />
+            <BreadCrumb router={`contact-us`} name='Contact us' />
 
             <div>
                 Contact

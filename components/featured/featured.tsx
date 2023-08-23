@@ -17,7 +17,7 @@ const Featured = async () => {
 
     return (
         <div className='container py-3'>
-            <h1>Featured Products</h1>
+            <h1 className='font-bold text-xl'>Featured Products</h1>
 
             <ProductCard products={products} />
         </div>
