@@ -4,43 +4,56 @@ import React, { useRef, useState } from 'react'
 import Link from 'next/link';
 import ProductImage from '../product-image';
 
-// async function getProducts() {
-//     let res = await fetch("https://fakestoreapi.com/products");
-
-//     return res.json()
-// }
-
-
-
 const Featured = ({ products }: { products: IProduct[] }) => {
 
-    // const products: IProduct[] = await getProducts();
-    const [isMoved, setIsMoved] = useState(false);
-    const [slideNumber, setSlideNumber] = useState(1);
+    const listRef = useRef<HTMLAnchorElement>(null);
 
-    const listRef = useRef<HTMLDivElement>(null);
-
-    const [currentSlide, setCurrentSlide] = useState(0);
+    const [slideNumber, setSlideNumber] = useState<number>(0);
+    const [currentSlide, setCurrentSlide] = useState<number>(0);
 
     const handleClick = (direction: string) => {
-        let distance = listRef.current?.getBoundingClientRect().x as number;
+        let distance = listRef.current?.offsetWidth as number;
 
+        let windownWidth = window.innerWidth as number;
+
+        let numberOfSlide = 0;
+
+        if (windownWidth < 425) {
+            numberOfSlide = products.length
+        } else if (windownWidth > 425 && windownWidth < 850) {
+            numberOfSlide = products.length - 2
+        } else if (windownWidth > 851 && windownWidth < 1179) {
+            numberOfSlide = products.length - 3
+        } else if (windownWidth > 1180) {
+            numberOfSlide = products.length - 4
+        }
 
         if (direction === "left") {
-            setSlideNumber(slideNumber - 1)
-            setCurrentSlide(currentSlide + 240);
+            setSlideNumber((prev) => prev - 1)
+            setCurrentSlide(currentSlide + distance);
+
+            if (slideNumber <= 0) {
+                setSlideNumber(numberOfSlide)
+                setCurrentSlide(-distance * numberOfSlide);
+                return;
+            }
         }
 
         if (direction === "right") {
-            setSlideNumber(slideNumber + 1)
-            setCurrentSlide(slideNumber * (-240));
+            if (slideNumber >= numberOfSlide) {
+                setSlideNumber(0)
+                setCurrentSlide(0);
+                return;
+            }
+            setSlideNumber((prev) => prev + 1)
+
+            setCurrentSlide(-distance * (slideNumber + 1));
         }
     }
-    console.log(slideNumber)
-    console.log(currentSlide)
+
     return (
         <div className='container py-3 overflow-hidden'>
-            <h1 className='font-bold text-xl'>Featured Products</h1>
+            <h1 className='font-bold text-xl py-3'>Featured Products</h1>
 
             <div className='flex relative'>
                 <div className='absolute flex items-center top-0 bottom-0 left-0 mr-auto h-full z-10 cursor-pointer' onClick={() => handleClick("left")} >
@@ -52,9 +65,9 @@ const Featured = ({ products }: { products: IProduct[] }) => {
                         </svg>
                     </span>
                 </div>
-                <div className='flex w-full z-0 gap-5 transition translate-x-0 duration-200 delay-100 ' style={{ transform: `translateX(${currentSlide}px)` }} >
+                <div className='flex w-full z-0 gap-5 transition translate-x-0 ease-in-out duration-700 delay-100 scroll-smooth' style={{ transform: `translateX(${currentSlide}px)` }} >
                     {products.map((p, idx) => (
-                        <Link href={`/product-detail/${p.id}`} key={p.id}
+                        <Link ref={listRef} href={`/product-detail/${p.id}`} key={p.id}
                             className='h-96 flex flex-col p-2 rounded border group hover:scale-105 transition-transform ease-out duration-200 shadow-sm cursor-pointer'
                         >
                             <div className="relative max-h-72 flex-1">

@@ -52,7 +52,7 @@ const Page = () => {
                                 alt=""
                                 style={{ width: '100%', height: 'auto' }}
                                 sizes="100vw"
-
+                                priority
                             />
                         </div>
                     </div>

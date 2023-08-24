@@ -14,21 +14,22 @@ type ImageProps = {
 const Slider = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const images: ImageProps[] = [
-        { imgUrl: "/11.jpg", base64: "", title: "Granola", url: '/product-detail/1' },
-        { imgUrl: "/22.jpg", base64: "", title: "Hanh Nhan", url: '/product-detail/2' },
-        { imgUrl: "/33.jpg", base64: "", title: "Mix", url: '/product-detail/3' },
+        { imgUrl: "/mix/8.jpg", base64: "", title: "Granola", url: '/product-detail/1' },
+        { imgUrl: "/hanhnhan/18.jpg", base64: "", title: "Hanh Nhan", url: '/product-detail/2' },
+        { imgUrl: "/occho/10.jpg", base64: "", title: "Oc Cho", url: '/product-detail/3' },
+        { imgUrl: "/hanhnhan/7.jpg", base64: "", title: "Mix hạt", url: '/product-detail/3' },
     ]
 
     const prevSlide = () => {
-        setCurrentSlide(currentSlide === 0 ? 2 : (prev) => prev - 1);
+        setCurrentSlide(currentSlide === 0 ? 3 : (prev) => prev - 1);
     };
     const nextSlide = () => {
-        setCurrentSlide(currentSlide === 2 ? 0 : (prev) => prev + 1);
+        setCurrentSlide(currentSlide === 3 ? 0 : (prev) => prev + 1);
     };
 
     return (
         <div className='w-screen relative overflow-hidden md:h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)]'>
-            <div className='flex relative overflow-hidden w-[300vw] h-full transition-all ease-in-out'>
+            <div className='flex relative overflow-hidden w-[400vw] h-full transition-all ease-in-out'>
                 {images.map((img, idx) => (
                     <div key={idx} className='flex duration-700 ease-in-out w-full relative' style={{ transform: `translateX(-${currentSlide * 100}vw)` }}>
                         <Image
@@ -44,10 +45,10 @@ const Slider = () => {
 
                         />
 
-                        <div className='flex flex-col absolute bottom-6 left-12 text-white gap-5 md:bottom-12 md:left-24 lg:bottom-36 lg:left-64'>
+                        <div className='flex flex-col absolute bottom-6 left-12 text-white gap-5 md:bottom-20 md:left-24 lg:bottom-36 lg:left-64'>
                             <h1 className='font-bold text-4xl shadow-sm md:text-5xl lg:text-8xl animate-fadeTopToBottom repeat-1 '>{img.title}</h1>
                             <span className='font-thin text-2xl text-white line-clamp-1 leading-relaxed animate-fadeLeftToRight repeat-1'>Lorem ipsum dolor sit amet consectetur adipisicing elit. ?</span>
-                            <button className='w-[200px] h-8 rounded border-none bg-blue-400/70 hover:bg-blue-500 active:ring-1 md:h-12 transition-all duration-700 ease-in-out animate-buttonScale '>SHOP NOW</button>
+                            <button className='w-[200px] h-8 rounded border-none bg-sky-400/70 hover:bg-sky-500 active:ring-1 md:h-12 transition-all duration-700 ease-in-out animate-buttonScale '>SHOP NOW</button>
                         </div>
                     </div>
 
