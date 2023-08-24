@@ -14,10 +14,10 @@ type ImageProps = {
 const Slider = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const images: ImageProps[] = [
-        { imgUrl: "/mix/8.jpg", base64: "", title: "Granola", url: '/product-detail/1' },
-        { imgUrl: "/hanhnhan/18.jpg", base64: "", title: "Hanh Nhan", url: '/product-detail/2' },
-        { imgUrl: "/occho/10.jpg", base64: "", title: "Oc Cho", url: '/product-detail/3' },
-        { imgUrl: "/hanhnhan/7.jpg", base64: "", title: "Mix hạt", url: '/product-detail/3' },
+        { imgUrl: "/m_1.jpg", base64: "", title: "Granola", url: '/product-detail/1' },
+        { imgUrl: "/h_4.jpg", base64: "", title: "Hanh Nhan", url: '/product-detail/2' },
+        { imgUrl: "/o_1.jpg", base64: "", title: "Oc Cho", url: '/product-detail/3' },
+        { imgUrl: "/h_1.jpg", base64: "", title: "Mix hạt", url: '/product-detail/3' },
     ]
 
     const prevSlide = () => {

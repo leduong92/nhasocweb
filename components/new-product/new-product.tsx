@@ -10,7 +10,7 @@ const NewProduct = () => {
                 <div>
                     <div className="group relative flex items-center justify-center">
                         <Image
-                            src="/hanhnhan/14.jpg"
+                            src="/h_2.jpg"
                             alt="test"
                             width={300}
                             height={150}
@@ -24,7 +24,7 @@ const NewProduct = () => {
                     </div>
                     <div className="group relative flex items-center justify-center">
                         <Image
-                            src="/granola/13.jpg"
+                            src="/g_4.jpg"
                             alt="test"
                             width={300}
                             height={150}
@@ -41,7 +41,7 @@ const NewProduct = () => {
                 <div>
                     <div className="group relative flex items-center justify-center">
                         <Image
-                            src="/macca/15.jpg"
+                            src="/ma_1.jpg"
                             alt="test"
                             width={300}
                             height={150}
@@ -55,7 +55,7 @@ const NewProduct = () => {
                     </div>
                     <div className="group relative flex items-center justify-center">
                         <Image
-                            src="/mix/17.jpg"
+                            src="/m_4.jpg"
                             alt="test"
                             width={300}
                             height={150}
@@ -72,7 +72,7 @@ const NewProduct = () => {
                 <div>
                     <div className="group relative flex items-center justify-center">
                         <Image
-                            src="/occho/12.jpg"
+                            src="/o_2.jpg"
                             alt="test"
                             width={300}
                             height={150}
@@ -86,7 +86,7 @@ const NewProduct = () => {
                     </div>
                     <div className="group relative flex items-center justify-center">
                         <Image
-                            src="/mix/12.jpg"
+                            src="/m_3.jpg"
                             alt="test"
                             width={300}
                             height={150}
