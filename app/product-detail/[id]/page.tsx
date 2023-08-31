@@ -14,7 +14,7 @@ type Props = {
 }
 
 async function getProduct(id: string) {
-    let res = await fetch(`https://fakestoreapi.com/products/${id}`);
+    let res = await fetch(`http://localhost:5000/api/Product/${id}`);
 
     return res.json()
 }
@@ -25,7 +25,7 @@ const Page = async ({ params: { id } }: Props) => {
 
     return (
         <>
-            <BreadCrumb router={`Products`} name={`${product.price}`} id={`${product.id}`} />
+            <BreadCrumb router={`Products`} name={`${product.metaTitle}`} id={`${product.id}`} />
 
             <div className='container py-3'>
                 <div className='flex flex-col gap-4 md:grid grid-flow-row grid-cols-2'>
@@ -33,7 +33,7 @@ const Page = async ({ params: { id } }: Props) => {
                     <ProductImageThumb />
 
                     <div>
-                        <h1>{product.title}</h1>
+                        <h1>{product.metaTitle}</h1>
                         <span className='text-[30px] font-bold'>${product.price}</span>
                         <p className='text-[15px] font-normal text-justify'>{product.description}</p>
 

@@ -13,7 +13,7 @@ type Props = {
 }
 
 async function getProduct(id: string) {
-    let res = await fetch(`https://fakestoreapi.com/products/category/${id}`);
+    let res = await fetch(`http://localhost:5000/api/Product/category/${id}`);
     return res.json();
 }
 
@@ -21,7 +21,7 @@ async function getProduct(id: string) {
 const page = async ({ params }: Props) => {
 
     const products: IProduct[] = await getProduct(params.id);
-
+    console.log(products)
     return (
         <div className='flex flex-col'>
 
@@ -39,6 +39,7 @@ const page = async ({ params }: Props) => {
                 </div>
 
             </div>
+            
             <ProductCard products={products} />
 
         </div>

@@ -1,14 +1,53 @@
 export interface IProduct {
     id: number,
-    title: string,
-    price: number,
+    name: string,
+    sku: string,
+    urlCode: string,
+    displayName: string,
     description: string,
-    image: string,
+    imageUrl: string,
+    seoAlias: string,
+    metaTitle: string,
+    metaKeyword: string,
+    metaDescription: string,
+    price: number,
+    originalPrice: number,
+    discount: number,
+    isFeatured: boolean,
+    isNew: boolean,
+    isBestSeller: boolean,
+    category: ICategory,
+    productImages: IProductImage[]
+}
+
+export interface IProductImage {
+    url: string,
+    caption: string,
+    isDefault: string,
+    sortOrder: string,
+    fileSize: string,
+}
+
+export interface IProductPaging {
+    pageIndex: number,
+    pageSize: number,
+    numberOfPage: number,
+    totalCount: number,
+    firstRowOnPage: number,
+    lastRowOnPage: number,
+    results: IProduct[]
 }
 
 export interface ICategory {
-    id: number,
-    categoryName: string,
-    url_code: string,
-    description: string
+    id: string,
+    name: string,
+    displayName: string,
+    urlCode: string,
+    isShowOnHome: boolean,
+    sortOrder: number,
+    seoAlias: string,
+    metaTitle: string,
+    metaKeyword: string,
+    metaDescription: string,
+    imageUrl: string,
 }

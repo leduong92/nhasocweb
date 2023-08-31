@@ -10,35 +10,34 @@ type ProductImageProps = {
 
 const ProductImage = ({ product, fill }: ProductImageProps) => {
     const [loading, setLoading] = useState(true);
+
     return (
         <>
-            {fill ? (
+            {product.productImages && fill ? (
                 <Image
-                    src={product.image}
-                    alt={product.title}
+                    src={`http://localhost:5000/${product.productImages[0]?.url}`}
+                    alt={product.metaTitle}
                     fill
-                    className={`object-contain duration-700 ease-in-out group-hover:opacity-75 ${loading
+                    className={`object-cover duration-700 ease-in-out group-hover:opacity-75 ${loading
                         ? "scale-90 blur-xl grayscale"
                         : "scale-100 blur-0 grayscale-0"
                         }}`}
                     sizes='100vw'
                     onLoadingComplete={() => setLoading(false)}
-                    priority
                 />
             ) : (
                 <Image
-                    src={product.image}
-                    alt={product.title}
+                    src={`/logo.svg`}
+                    alt={product.metaTitle}
                     width={400}
                     height={1000}
                     style={{ width: '100%', height: 'auto' }}
                     sizes='100vw'
-                    className={`object-contain duration-700 ease-in-out group-hover:opacity-75 ${loading
+                    className={`object-cover duration-700 ease-in-out group-hover:opacity-75 ${loading
                         ? "scale-90 blur-xl grayscale"
                         : "scale-100 blur-0 grayscale-0"
                         }}`}
                     onLoadingComplete={() => setLoading(false)}
-                    priority
                 />
             )}
         </>

@@ -6,7 +6,7 @@ const NewProduct = () => {
         <div className="container">
             <h1 className='font-bold text-xl py-3'>New products</h1>
 
-            <div className="columns-3 gap-5">
+            <div className="columns  md:columns-3 gap-5">
                 <div>
                     <div className="group relative flex items-center justify-center">
                         <Image

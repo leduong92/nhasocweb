@@ -20,7 +20,7 @@ export function SortCategoryMenu() {
             </SelectTrigger>
             <SelectContent>
                 <SelectGroup>
-                    <SelectLabel>Fruits</SelectLabel>
+                    {/* <SelectLabel>Fruits</SelectLabel> */}
                     <SelectItem value="newest">Newest</SelectItem>
                     <SelectItem value="bestSeller">Best seller</SelectItem>
                     <SelectItem value="productaz">Product (A-Z)</SelectItem>

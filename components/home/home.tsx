@@ -6,22 +6,21 @@ import { IProduct } from "@/util/constant";
 import NewProduct from "../new-product/new-product";
 import NewsLetter from "../news-letter/news-letter";
 
-async function getProducts() {
-    let res = await fetch("https://fakestoreapi.com/products");
+async function getFeatureds() {
+    let res = await fetch("http://localhost:5000/api/Product/featureds");
 
     return res.json()
 }
 
-
 const HomePage = async () => {
 
-    const products: IProduct[] = await getProducts();
+    const featureds: IProduct[] = await getFeatureds();
 
     return (
         <div >
             <Slider />
 
-            <Featured products={products} />
+            <Featured products={featureds} />
 
             <NewProduct />
 
