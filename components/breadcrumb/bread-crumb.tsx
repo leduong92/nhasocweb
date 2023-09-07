@@ -27,7 +27,6 @@ const BreadCrumb = ({ router, name, id }: Props) => {
                             <span className="mx-2 h-auto text-gray-400 font-medium">/</span>
                         </li>
                         {id
-
                             ? <>
                                 <li className="inline-flex items-center">
                                     <Link href={`/products`} className=" hover:text-blue-500 ">
@@ -36,8 +35,8 @@ const BreadCrumb = ({ router, name, id }: Props) => {
 
                                     <span className="mx-2 h-auto text-gray-400 font-medium">/</span>
                                 </li>
-                                <li className="inline-flex items-center">
-                                    <Link href={`product-detail/${id}`} className=" hover:text-blue-500  text-blue-500">
+                                <li className="inline-flex items-center truncate ...">
+                                    <Link href={`product-detail/${id}`} className="truncate ... hover:text-blue-500  text-blue-500">
                                         {name}
                                     </Link>
                                 </li>

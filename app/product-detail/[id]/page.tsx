@@ -6,6 +6,7 @@ import AddCartButton from '@/components/product-detail/add-cart-button';
 import AddWishlist from '@/components/product-detail/add-wishlist-button';
 import AddToCompare from '@/components/product-detail/add-to-compare';
 import BreadCrumb from '@/components/breadcrumb/bread-crumb';
+import ProductCard from '@/components/product-card/product-card';
 
 type Props = {
     params: {
@@ -28,27 +29,23 @@ const Page = async ({ params: { id } }: Props) => {
             <BreadCrumb router={`Products`} name={`${product.metaTitle}`} id={`${product.id}`} />
 
             <div className='container py-3'>
-                <div className='flex flex-col gap-4 md:grid grid-flow-row grid-cols-2'>
+                <div className='flex flex-col gap-4 md:grid lg:grid xl:grid grid-flow-row grid-cols-2'>
 
-                    <ProductImageThumb />
+                    <div >
+                        <ProductImageThumb product={product} />
+                    </div>
 
-                    <div>
-                        <h1>{product.metaTitle}</h1>
-                        <span className='text-[30px] font-bold'>${product.price}</span>
+                    <div className='flex flex-col gap-2'>
+                        <h1 className='font-bold text-lg text-[30px]'>{product.metaTitle}</h1>
+                        <div className='flex gap-3 justify-between'>
+                            <span className='text-xl'>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(product.price)}</span>
+                            <span className='text-md font-light italic line-through'>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(product.originalPrice)}</span>
+                        </div>
                         <p className='text-[15px] font-normal text-justify'>{product.description}</p>
 
                         <InteractiveQuantity />
 
                         <AddCartButton />
-
-                        <div className='flex gap-5 py-3'>
-                            <div className='flex items-center gap-3 text-[14px] cursor-pointer'>
-                                <AddWishlist />Add To Wishlist
-                            </div>
-                            <div className='flex items-center gap-3 text-[14px] cursor-pointer'>
-                                <AddToCompare /> Add To Compare
-                            </div>
-                        </div>
 
                         <div className="flex flex-col gap-3 text-[14px] mt-7">
                             <span>Vendor: Polo</span>
@@ -59,6 +56,10 @@ const Page = async ({ params: { id } }: Props) => {
                     </div>
                 </div>
 
+            </div>
+
+            <div>
+                {/* <ProductCard products={} /> */}
             </div>
         </>
 

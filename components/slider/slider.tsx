@@ -30,7 +30,7 @@ const Slider = () => {
     };
 
     return (
-        <div className='w-screen relative overflow-hidden md:h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] '>
+        <div className='w-screen relative overflow-hidden md:h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] xl:h-[calc(100vh-80px)]'>
             <div className='flex overflow-hidden w-[500vw] h-full transition-all ease-in-out'>
                 {images.map((img, idx) => (
                     <div key={idx} className='flex duration-700 ease-in-out w-full overflow-hidden relative' style={{ transform: `translateX(-${currentSlide * 100}vw)` }}>
@@ -46,11 +46,11 @@ const Slider = () => {
                             className='object-cover w-screen h-full'
                         />
 
-                        <div className='flex flex-col absolute bottom-6 left-8 gap-10 md:w-[600px] md:bottom-5 md:left-20 lg:left-14 lg:bottom-18 lg:w-[800px] lg:bottom-36 xl:left-40 '>
-                            <h1 className='font-bold text-4xl shadow-sm text-yellow-50 md:text-5xl lg:text-8xl animate-fadeTopToBottom repeat-1 '>{img.title}</h1>
-                            <span className='font-extralight w-72  text-sm text-yellow-50 line-clamp-1 flex text-justify leading-normal animate-fadeLeftToRight repeat-1 md:text-2xl md:w-full lg:w-full'>{img.description}</span>
+                        <div className='flex flex-col absolute bottom-6 left-8 gap-10 md:w-[700px] md:bottom-5 md:left-20 lg:left-14 lg:bottom-18 lg:w-[800px] lg:bottom-36 xl:left-40 xl:w-full '>
+                            <h1 className='font-bold text-4xl shadow-sm text-white md:text-5xl lg:text-8xl animate-fadeTopToBottom repeat-1 xl:text-8xl'>{img.title}</h1>
+                            <span className='font-extralight w-72 text-sm  line-clamp-1 flex text-justify leading-normal animate-fadeLeftToRight repeat-1 md:text-2xl md:w-full lg:w-[800px] lg:text-4xl xl:w-[1200px] xl:text-4xl'>{img.description}</span>
                             <Link href={img.url} >
-                                <button className='w-[200px] h-8 rounded border-none bg-sky-400/70 hover:bg-sky-500 active:ring-1 md:h-12 transition-all duration-700 ease-in-out animate-buttonScale text-yellow-50'>SHOP NOW</button>
+                                <button className='w-[200px] h-8 xl:h-10 rounded border-none bg-sky-400/70 hover:bg-sky-500 active:ring-1 md:h-12 transition-all duration-700 ease-in-out animate-buttonScale text-yellow-50'>SHOP NOW</button>
                             </Link>
                         </div>
                     </div>

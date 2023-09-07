@@ -23,9 +23,9 @@ export interface IProduct {
 export interface IProductImage {
     url: string,
     caption: string,
-    isDefault: string,
-    sortOrder: string,
-    fileSize: string,
+    isDefault: boolean,
+    sortOrder: number,
+    fileSize: number,
 }
 
 export interface IProductPaging {

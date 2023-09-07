@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <div className="border-t mt-2">
             <div className='container flex flex-col gap-4 mt-2'>
-                <div className='flex flex-col md:grid md:grid-cols-3 grid-flow-row lg:grid-cols-4 gap-5'>
+                <div className='flex flex-col md:grid md:grid-cols-3 grid-flow-row lg:grid lg:grid-cols-4 xl:grid xl:grid-cols-4 gap-5'>
                     <div className='flex flex-col gap-5'>
                         <LogoLink />
                         <Link href={`/site-map`}>Site map</Link>

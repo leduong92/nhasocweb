@@ -20,11 +20,11 @@ const Page = async () => {
                     <span>{data.totalCount} Results</span>
                 </div>
 
-                <div >
+                {/* <div >
                     <SortCategoryMenu />
-                </div>
+                </div> */}
 
-                <div className='md:hidden'>
+                <div className='md:hidden lg:hidden xl:hidden'>
                     <CategoryDropdownTrigger />
                 </div>
 

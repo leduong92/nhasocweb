@@ -1,9 +1,6 @@
 import CategoryDropdownTrigger from '@/components/category-dropdown-menu/category-dropdown-trigger';
 import ProductCard from '@/components/product-card/product-card';
-import ProductImage from '@/components/product-image';
-import { SortCategoryMenu } from '@/components/sort-category-menu/sort-category-menu';
 import { IProduct } from '@/util/constant';
-import Link from 'next/link';
 import React from 'react'
 
 type Props = {
@@ -21,7 +18,7 @@ async function getProduct(id: string) {
 const page = async ({ params }: Props) => {
 
     const products: IProduct[] = await getProduct(params.id);
-    console.log(products)
+
     return (
         <div className='flex flex-col'>
 
@@ -30,16 +27,16 @@ const page = async ({ params }: Props) => {
                     <span>{products.length} Results</span>
                 </div>
 
-                <div >
+                {/* <div >
                     <SortCategoryMenu />
-                </div>
+                </div> */}
 
-                <div className='md:hidden'>
+                <div className='md:hidden lg:hidden xl:hidden'>
                     <CategoryDropdownTrigger />
                 </div>
 
             </div>
-            
+
             <ProductCard products={products} />
 
         </div>
