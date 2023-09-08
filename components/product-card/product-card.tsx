@@ -2,6 +2,7 @@ import { IProduct } from '@/util/constant'
 import React from 'react'
 import ProductImage from '../product-image'
 import Link from 'next/link'
+import { formatCurrency } from '@/util/formatCurrency'
 
 const ProductCard = ({ products }: { products: IProduct[] }) => {
     return (
@@ -22,8 +23,8 @@ const ProductCard = ({ products }: { products: IProduct[] }) => {
                                 <p className="text-[20px] w-full ">{p.metaTitle}</p>
 
                                 <div className="w-full flex justify-between">
-                                    <p className='text-sky-400 font-bold text-lg '>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(p.originalPrice)}</p>
-                                    <p className='italic font-mono line-through'>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(p.price)}</p>
+                                    <p className='text-sky-400 font-bold text-lg '>{formatCurrency(p.originalPrice)}</p>
+                                    <p className='italic font-mono line-through'>{formatCurrency(p.price)}</p>
                                 </div>
                             </div>
                             <div className='w-full'>

@@ -3,6 +3,8 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { Button } from '../ui/button'
+import { Label } from '../ui/label'
 
 type SlideProps = {
     imgUrl: string,
@@ -48,9 +50,10 @@ const Slider = () => {
 
                         <div className='flex flex-col absolute bottom-6 left-8 gap-10 md:w-[700px] md:bottom-5 md:left-20 lg:left-14 lg:bottom-18 lg:w-[800px] lg:bottom-36 xl:left-40 xl:w-full '>
                             <h1 className='font-bold text-4xl shadow-sm text-white md:text-5xl lg:text-8xl animate-fadeTopToBottom repeat-1 xl:text-8xl'>{img.title}</h1>
-                            <span className='font-extralight w-72 text-sm  line-clamp-1 flex text-justify leading-normal animate-fadeLeftToRight repeat-1 md:text-2xl md:w-full lg:w-[800px] lg:text-4xl xl:w-[1200px] xl:text-4xl'>{img.description}</span>
-                            <Link href={img.url} >
-                                <button className='w-[200px] h-8 xl:h-10 rounded border-none bg-sky-400/70 hover:bg-sky-500 active:ring-1 md:h-12 transition-all duration-700 ease-in-out animate-buttonScale text-yellow-50'>SHOP NOW</button>
+                            <Label className='hidden font-extralight w-72 text-sm  line-clamp-1 md:flex lg:flex xl:flex text-justify leading-normal animate-fadeLeftToRight 
+                            repeat-1 md:text-2xl md:w-full lg:w-[800px] lg:text-4xl xl:w-[1200px] xl:text-4xl'>{img.description}</Label>
+                            <Link href={img.url}>
+                                <Button className='w-[200px] h-8 xl:h-10 rounded border-none bg-sky-400/70 hover:bg-sky-500 active:ring-1 md:h-12 transition-all duration-700 ease-in-out animate-buttonScale text-yellow-50'>SHOP NOW</Button>
                             </Link>
                         </div>
                     </div>

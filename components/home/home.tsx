@@ -7,7 +7,7 @@ import NewProduct from "../new-product/new-product";
 import NewsLetter from "../news-letter/news-letter";
 
 async function getFeatureds() {
-    console.log(process.env.BASE_URL)
+
     let res = await fetch(`${process.env.BASE_URL}/Product/featureds`);
 
     return res.json()

@@ -1,12 +1,16 @@
+"use client"
 import { Dispatch, createContext, useReducer } from "react";
 
-import { ActionType, StateType } from "./types";
+import { ActionType, StateType } from "./actions";
 import reducers from "./reducers";
+import { IBasket, IBasketItem } from "@/util/constant";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 
-const INITIAL_STATE = {
-    theme: "dark",
-    fontSize: 16
+const INITIAL_STATE: StateType = {
+    basket: {
+        items: [] as IBasketItem[]
+    } as IBasket,
 }
 
 const AppContext = createContext<{
@@ -19,6 +23,11 @@ const AppContext = createContext<{
 
 const Approvider = ({ children }: { children: React.ReactNode }) => {
     const [state, dispatch] = useReducer(reducers, INITIAL_STATE);
+
+    const [cartItems, setCartItems] = useLocalStorage<IBasket[]>(
+        "shopping-cart",
+        []
+    )
 
     return (
         <AppContext.Provider value={{ state, dispatch }}>

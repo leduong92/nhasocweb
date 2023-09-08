@@ -3,8 +3,17 @@ import { IProduct } from '@/util/constant';
 import React, { useRef, useState } from 'react'
 import Link from 'next/link';
 import ProductImage from '../product-image';
+import { useStore } from '@/hooks/useStore';
+import { addToBasket, increaseBasketQuantity } from '@/store/actions';
+import { Label } from '../ui/label';
+import { Button } from '../ui/button';
+import { formatCurrency } from '@/util/formatCurrency';
 
 const Featured = ({ products }: { products: IProduct[] }) => {
+
+    const { state, dispatch } = useStore();
+
+    const basket = state.basket;
 
     const listRef = useRef<HTMLDivElement>(null);
 
@@ -70,7 +79,7 @@ const Featured = ({ products }: { products: IProduct[] }) => {
                             className=' relative flex flex-col p-2 rounded border group hover:scale-105 transition-transform ease-out duration-200 shadow-sm cursor-pointer'
                         >
                             <div className='w-full relative flex flex-row justify-between pb-2 z-10'>
-                                <span className='text-sm italic  top-2 border w-max rounded-full p-1 bg-sky-200' >Giảm {(p.originalPrice - p.price) / 1000}% </span>
+                                <span className='text-sm italic top-2 border w-max rounded-full p-1 bg-sky-300' >Giảm {(p.originalPrice - p.price) / 1000}% </span>
                             </div>
                             <Link href={`/product-detail/${p.id}`} className='h-80 flex flex-col p-2'>
                                 <div className="relative w-[265px] max-h-64 flex-1 z-0">
@@ -80,14 +89,17 @@ const Featured = ({ products }: { products: IProduct[] }) => {
                                     <p className="text-[20px] w-full ">{p.metaTitle}</p>
 
                                     <div className="w-full flex justify-between">
-                                        <p className='text-sky-400 font-bold text-lg '>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(p.originalPrice)}</p>
-                                        <p className='italic font-mono line-through'>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(p.price)}</p>
+                                        <p className='text-sky-400 font-bold text-lg '>{formatCurrency(p.price)}</p>
+                                        <p className='italic font-mono line-through'>{formatCurrency(p.originalPrice)}</p>
                                     </div>
                                 </div>
 
                             </Link>
                             <div className='w-full'>
-                                <button className='w-full h-9 bg-sky-300 hover:bg-sky-400 transition-all transform duration-300 delay-100 text-white active:ring-2'>Thêm giỏ hàng</button>
+                                <Button className='w-full h-9 bg-sky-300 hover:bg-sky-400 transition-all transform duration-300 delay-100
+                                 text-white active:ring-2'
+                                    onClick={() => dispatch(addToBasket(p, basket))}
+                                >Thêm giỏ hàng</Button>
                             </div>
                         </div>
                     ))}

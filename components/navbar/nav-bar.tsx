@@ -1,10 +1,8 @@
 import React from 'react';
-import Link from 'next/link';
 import DarkModeToggle from '../darkmode/DarkModeToggle';
 import Sidebar from '../sidebar/side-bar';
 import NavLink from '../nav-link';
-import CartModel from '../cart/cart-model';
-import Image from 'next/image';
+import CartModel from '../basket/basket-model';
 import LogoLink from '../logo-link/logo-link';
 
 const links = [
@@ -37,7 +35,7 @@ const links = [
 
 const NavBar = () => {
     return (
-        <header className="border-b py-2">
+        <header className="py-2 fixed top-0 z-50 bg-background w-full ">
             <div className='container flex items-center justify-between'>
 
                 <LogoLink />
@@ -49,12 +47,14 @@ const NavBar = () => {
                             {link.title}
                         </NavLink>
                     ))}
-                    <div className='flex items-center gap-4'>
+                    <div>
                         <CartModel />
                     </div>
                 </div>
-                <Sidebar />
-
+                <div className='flex items-center gap-2 md:hidden lg:hidden xl:hidden'>
+                    <CartModel />
+                    <Sidebar />
+                </div>
             </div>
         </header>
     );

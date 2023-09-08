@@ -53,17 +53,16 @@ export interface ICategory {
 }
 
 export interface IBasket {
-    id: string;
     items: IBasketItem[];
-    deliveryMethodId?: number;
-    shippingPrice?: number;
 }
 
 export interface IBasketItem {
     id: number;
-    productName: string;
+    sku: string;
+    name: string;
     price: number;
     quantity: number;
-    pictureUrl: string;
+    imageUrl: string;
     category: string;
 }
+

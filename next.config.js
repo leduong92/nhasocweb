@@ -16,6 +16,7 @@ const nextConfig = {
     },
     env: {
         BASE_URL: 'http://localhost:5000/api',
+        BASE_IMAGE_URL: 'http://localhost:5000/',
     },
 };
 

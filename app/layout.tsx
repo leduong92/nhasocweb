@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "./context/theme-provider";
 import Footer from "@/components/footer/footer";
 import GotoTop from "@/components/go-top";
+import { Approvider } from "@/store/globalState";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,12 +22,14 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body className={`${inter.className}`}>
-                <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-                    <NavBar />
-                    <main>{children}</main>
-                    <Footer />
-                    <GotoTop />
-                </ThemeProvider>
+                <Approvider>
+                    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+                        <NavBar />
+                        <main>{children}</main>
+                        <Footer />
+                        <GotoTop />
+                    </ThemeProvider>
+                </Approvider>
             </body>
         </html>
     );
