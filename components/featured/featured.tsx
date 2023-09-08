@@ -46,14 +46,13 @@ const Featured = ({ products }: { products: IProduct[] }) => {
                 return;
             }
             setSlideNumber((prev) => prev + 1)
-
             setCurrentSlide(-distance * (slideNumber + 1));
         }
     }
 
     return (
         <div className='container py-3 overflow-hidden'>
-            <h1 className='font-bold text-xl py-3'>Featured Products</h1>
+            <h1 className='font-bold text-3xl py-3'>Sản phẩm nổi bật</h1>
 
             <div className='flex relative'>
                 <div className='absolute flex items-center top-0 bottom-0 left-0 mr-auto h-full z-10 cursor-pointer' onClick={() => handleClick("left")} >
@@ -73,11 +72,11 @@ const Featured = ({ products }: { products: IProduct[] }) => {
                             <div className='w-full relative flex flex-row justify-between pb-2 z-10'>
                                 <span className='text-sm italic  top-2 border w-max rounded-full p-1 bg-sky-200' >Giảm {(p.originalPrice - p.price) / 1000}% </span>
                             </div>
-                            <Link href={`/product-detail/${p.id}`} className='h-96 flex flex-col p-2'>
+                            <Link href={`/product-detail/${p.id}`} className='h-80 flex flex-col p-2'>
                                 <div className="relative w-[265px] max-h-64 flex-1 z-0">
                                     <ProductImage product={p} fill />
                                 </div>
-                                <div className="flex flex-col items-center justify-between mb-4 gap-4">
+                                <div className="flex flex-col items-center justify-between mb-1 gap-2">
                                     <p className="text-[20px] w-full ">{p.metaTitle}</p>
 
                                     <div className="w-full flex justify-between">
@@ -85,11 +84,11 @@ const Featured = ({ products }: { products: IProduct[] }) => {
                                         <p className='italic font-mono line-through'>{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(p.price)}</p>
                                     </div>
                                 </div>
-                                <div className='w-full'>
-                                    <button className='w-full h-9 bg-sky-300 hover:bg-sky-400 transition-all transform duration-300 delay-100 text-white active:ring-2'>Thêm giỏ hàng</button>
-                                </div>
-                            </Link>
 
+                            </Link>
+                            <div className='w-full'>
+                                <button className='w-full h-9 bg-sky-300 hover:bg-sky-400 transition-all transform duration-300 delay-100 text-white active:ring-2'>Thêm giỏ hàng</button>
+                            </div>
                         </div>
                     ))}
                 </div>

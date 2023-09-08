@@ -4,7 +4,7 @@ import React from 'react'
 const NewProduct = () => {
     return (
         <div className="container">
-            <h1 className='font-bold text-xl py-3'>New products</h1>
+            <h1 className='font-bold text-2xl py-3'>Sản phẩm mới</h1>
 
             <div className="columns md:columns-3 lg:columns-3 xl:columns-3 gap-5">
                 <div>

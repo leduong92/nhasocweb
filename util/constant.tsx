@@ -51,3 +51,19 @@ export interface ICategory {
     metaDescription: string,
     imageUrl: string,
 }
+
+export interface IBasket {
+    id: string;
+    items: IBasketItem[];
+    deliveryMethodId?: number;
+    shippingPrice?: number;
+}
+
+export interface IBasketItem {
+    id: number;
+    productName: string;
+    price: number;
+    quantity: number;
+    pictureUrl: string;
+    category: string;
+}
