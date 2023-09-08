@@ -19,7 +19,7 @@ export function mapProductItemToBasketItem(item: IProduct, quantity = 1): IBaske
         sku: item.sku,
         price: item.price,
         quantity,
-        imageUrl: item.imageUrl,
+        imageUrl: item.productImages.find(x => x.isDefault == true)?.url as string,
         category: item.category.id
     }
 }

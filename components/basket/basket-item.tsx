@@ -4,6 +4,7 @@ import { IBasketItem } from '@/util/constant'
 import React from 'react'
 import { Button } from '../ui/button';
 import { formatCurrency } from '@/util/formatCurrency';
+import Image from 'next/image';
 
 
 const BasketItem = ({ item }: { item: IBasketItem }) => {
@@ -14,11 +15,16 @@ const BasketItem = ({ item }: { item: IBasketItem }) => {
 
     return (
         <div className='flex flex-col border-b gap-3 py-3'>
-            <div className='flex justify-between'>
-                <div className='w-28 h-28 bg-slate-300'>
-                    {item.imageUrl}
+            <div className='flex justify-between items-center gap-5'>
+                <div className='relative w-28 h-28 bg-slate-300 '>
+                    <Image
+                        src={`${process.env.BASE_IMAGE_URL}${item.imageUrl}`}
+                        fill
+                        alt={item.name}
+                        title={item.name}
+                    />
                 </div>
-                <div className='flex flex-col gap-2'>
+                <div className='flex flex-col gap-2 flex-1'>
                     <div>
                         <h1>{item.sku}</h1>
                         <span>{item.name}</span>

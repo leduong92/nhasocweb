@@ -19,13 +19,11 @@ const CartModel = () => {
     const { state, dispatch } = useStore();
     const router = useRouter()
 
-    const basketQuantity = state.basket.items.reduce(
+    const basketQuantity = state.basket.items?.reduce(
         (quantity, item) => item.quantity + quantity, 0
     )
 
     const basket = state.basket;
-
-    console.log()
 
     return (
         <Popover>

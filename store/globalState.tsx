@@ -1,10 +1,9 @@
 "use client"
-import { Dispatch, createContext, useReducer } from "react";
+import { Dispatch, createContext, useEffect, useReducer } from "react";
 
 import { ActionType, StateType } from "./actions";
 import reducers from "./reducers";
 import { IBasket, IBasketItem } from "@/util/constant";
-import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 
 const INITIAL_STATE: StateType = {
@@ -24,10 +23,22 @@ const AppContext = createContext<{
 const Approvider = ({ children }: { children: React.ReactNode }) => {
     const [state, dispatch] = useReducer(reducers, INITIAL_STATE);
 
-    const [cartItems, setCartItems] = useLocalStorage<IBasket[]>(
-        "shopping-cart",
-        []
-    )
+    useEffect(() => {
+        const cart = localStorage.getItem('shopping-cart')
+        if (cart)
+            dispatch({
+                type: 'ADD_CART',
+                payload: {
+                    items: JSON.parse(cart) as IBasketItem[]
+                }
+            })
+
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('shopping-cart', JSON.stringify(state.basket.items))
+    }, [state.basket])
+
 
     return (
         <AppContext.Provider value={{ state, dispatch }}>
