@@ -32,7 +32,7 @@ const Slider = () => {
     };
 
     return (
-        <div className='w-screen relative overflow-hidden md:h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] xl:h-[calc(100vh-80px)]'>
+        <div className='w-screen relative overflow-hidden md:h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] xl:h-[calc(100vh-80px)] z-10'>
             <div className='flex overflow-hidden w-[500vw] h-full transition-all ease-in-out'>
                 {images.map((img, idx) => (
                     <div key={idx} className='flex duration-700 ease-in-out w-full overflow-hidden relative' style={{ transform: `translateX(-${currentSlide * 100}vw)` }}>
@@ -45,8 +45,10 @@ const Slider = () => {
                             style={{ width: '100%', height: 'auto' }}
                             sizes='100vw'
                             priority
-                            className='object-cover w-screen h-full'
+                            className='object-cover w-screen h-full relative'
                         />
+
+                        <div className='absolute bottom-0 h-80 w-full bg-gradient-to-t from-slate-50/70  z-0'></div>
 
                         <div className='flex flex-col absolute bottom-6 left-8 gap-10 md:w-[700px] md:bottom-5 md:left-20 lg:left-14 lg:bottom-18 lg:w-[800px] lg:bottom-36 xl:left-40 xl:w-full '>
                             <h1 className='font-bold text-4xl shadow-sm text-white md:text-5xl lg:text-8xl animate-fadeTopToBottom repeat-1 xl:text-8xl'>{img.title}</h1>
@@ -56,9 +58,16 @@ const Slider = () => {
                                 <Button className='w-[200px] h-8 xl:h-10 rounded border-none bg-sky-400/70 hover:bg-sky-500 active:ring-1 md:h-12 transition-all duration-700 ease-in-out animate-buttonScale text-yellow-50'>SHOP NOW</Button>
                             </Link>
                         </div>
+
+
                     </div>
+
                 ))}
+
             </div>
+
+
+
             <button type="button" className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" onClick={prevSlide} >
                 <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={`${inter.className}`}>
+            <body className={`${inter.className} `}>
                 <Approvider>
                     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                         <NavBar />
