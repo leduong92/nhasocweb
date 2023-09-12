@@ -1,7 +1,6 @@
 import React from "react";
 import Slider from "../slider/slider";
 import Featured from "../featured/featured";
-import Image from "next/image";
 import { IProduct } from "@/util/constant";
 import NewProduct from "../new-product/new-product";
 import NewsLetter from "../news-letter/news-letter";
@@ -13,9 +12,19 @@ async function getFeatureds() {
     return res.json()
 }
 
+async function getNewProducts() {
+
+    let res = await fetch(`${process.env.BASE_URL}/Product/newproducts`);
+
+    return res.json()
+}
+
 const HomePage = async () => {
 
-    const featureds: IProduct[] = await getFeatureds();
+    const featuredDatas: IProduct[] = await getFeatureds();
+    const newProductDatas: IProduct[] = await getNewProducts();
+
+    const [featureds, newProducts] = await Promise.all([featuredDatas, newProductDatas]);
 
     return (
         <div >
@@ -23,7 +32,7 @@ const HomePage = async () => {
 
             <Featured products={featureds} />
 
-            <NewProduct />
+            <NewProduct products={newProducts} />
 
             <NewsLetter />
         </div>

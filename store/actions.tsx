@@ -24,8 +24,8 @@ export function mapProductItemToBasketItem(item: IProduct, quantity = 1): IBaske
     }
 }
 
-export function addToBasket(item: IProduct, basket: IBasket = {} as IBasket): AddToBasket {
-    const itemToAdd: IBasketItem = mapProductItemToBasketItem(item);
+export function addToBasket(item: IProduct, basket: IBasket = {} as IBasket, quantity?: number): AddToBasket {
+    const itemToAdd: IBasketItem = mapProductItemToBasketItem(item, quantity);
 
     const newBasket = [...basket.items];
 

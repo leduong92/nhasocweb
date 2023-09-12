@@ -33,9 +33,10 @@ const Page = () => {
             <BreadCrumb router={`blog`} name='Blogs' />
 
             <div className='container'>
-                <h1 className='capitalize font-bold text-[25px] py-2'>Our Blog</h1>
+                <h1 className='capitalize font-bold text-[25px] py-4'>Our Blog </h1>
 
-                {data.map((item) => (
+                <h1>Comming soon...</h1>
+                {/* {data.map((item) => (
                     <div key={item.id} className='flex flex-col rounded-md border shadow-sm my-3 p-5 gap-3 md:flex-row md:odd:flex-row-reverse xl:items-center'>
                         <div className='order-2 md:order-1 pr-1 xl:flex-1 flex-col items-center text-left' >
                             <h1 className='font-bold text-2xl my-3'>{item.title}</h1>
@@ -56,7 +57,7 @@ const Page = () => {
                             />
                         </div>
                     </div>
-                ))}
+                ))} */}
             </div>
         </div>
     )

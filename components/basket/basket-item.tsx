@@ -26,7 +26,7 @@ const BasketItem = ({ item }: { item: IBasketItem }) => {
                 </div>
                 <div className='flex flex-col gap-2 flex-1'>
                     <div>
-                        <h1>{item.sku}</h1>
+                        <h1>Sku: {item.sku}</h1>
                         <span>{item.name}</span>
                     </div>
 

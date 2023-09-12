@@ -1,10 +1,19 @@
 import Link from 'next/link';
 import React from 'react';
 import LogoLink from '../logo-link/logo-link';
+import { ICategory } from '@/util/constant';
 
-const Footer = () => {
+async function getCategories() {
+    let res = await fetch(`${process.env.BASE_URL}/Category`);
+    return res.json();
+}
+
+const Footer = async () => {
+
+    const categories: ICategory[] = await getCategories();
+
     return (
-        <div className="border-t mt-2">
+        <div className="border-t mt-2 top-[70px] md:top-[85px] lg:top-[90px] xl:top-[100px] relative">
             <div className='container flex flex-col gap-4 mt-2'>
                 <div className='flex flex-col md:grid md:grid-cols-3 grid-flow-row lg:grid lg:grid-cols-4 xl:grid xl:grid-cols-4 gap-5'>
                     <div className='flex flex-col gap-5'>
@@ -14,19 +23,20 @@ const Footer = () => {
                     <div>
                         <h1 className='text-xl font-bold'>Sản phẩm</h1>
                         <ul className='flex flex-col gap-3 pt-3'>
-                            <li>Granola</li>
-                            <li>Macca</li>
-                            <li>Hạt điều</li>
-                            <li>Hạnh nhân</li>
-                            <li>Mix</li>
+                            {categories.map((itm) => (
+                                <li key={itm.id}>
+                                    <Link href={`/products/category/${itm.id}`}>{itm.displayName}</Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                     <div>
                         <h1 className='text-xl font-bold'>Chính sách</h1>
                         <ul className='flex flex-col gap-3 pt-3'>
-                            <Link href={`/about-us`}>About us</Link>
-                            <li>Terms of service</li>
-                            <li>Refund policy</li>
+                            <Link href={`/about-us`}>Thông tin</Link>
+                            <Link href={`/term-of-service`}>Điều khoản dịch vụ</Link>
+                            <Link href={`/refund`}>Chính sách hoàn tiền</Link>
+                            <Link href={`/shipping-policy`}>Chính sách giao hàng</Link>
                         </ul>
                     </div>
                     <div>
@@ -52,7 +62,7 @@ const Footer = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                                 </svg>
-                                <p className='text-justify'>maileduong92@gmail.com</p>
+                                <p className='text-justify'>jamejohson92@gmail.com</p>
                             </li>
 
 

@@ -13,6 +13,7 @@ import { Label } from '@radix-ui/react-dropdown-menu'
 import { formatCurrency } from '@/util/formatCurrency'
 import { useRouter } from 'next/navigation';
 import BasketItem from './basket-item'
+import { resetBasket } from '@/store/actions'
 
 const CartModel = () => {
 
@@ -42,8 +43,13 @@ const CartModel = () => {
             </PopoverTrigger>
             <PopoverContent className="w-96">
                 <div className="grid gap-4 p-1">
-                    <div className="space-y-2">
+                    <div className="space-y-2 flex justify-between items-center">
                         <h4 className="font-medium leading-none text-gray-500">Giỏ hàng của bạn</h4>
+                        <button onClick={() => dispatch(resetBasket())} >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                            </svg>
+                        </button>
                     </div>
                     <div className="grid gap-2">
                         {state.basket.items.map((item, idx) => (

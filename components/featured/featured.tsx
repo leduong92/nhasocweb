@@ -8,6 +8,7 @@ import { addToBasket, increaseBasketQuantity } from '@/store/actions';
 import { Label } from '../ui/label';
 import { Button } from '../ui/button';
 import { formatCurrency } from '@/util/formatCurrency';
+import AddToCartButton from '../product-card/add-cart-button';
 
 const Featured = ({ products }: { products: IProduct[] }) => {
 
@@ -96,10 +97,11 @@ const Featured = ({ products }: { products: IProduct[] }) => {
 
                             </Link>
                             <div className='w-full'>
-                                <Button className='w-full h-9 bg-sky-300 hover:bg-sky-400 transition-all transform duration-300 delay-100
+                                {/* <Button className='w-full h-9 bg-sky-300 hover:bg-sky-400 transition-all transform duration-300 delay-100
                                  text-white active:ring-2'
                                     onClick={() => dispatch(addToBasket(p, basket))}
-                                >Thêm giỏ hàng</Button>
+                                >Thêm giỏ hàng</Button> */}
+                                <AddToCartButton product={p} />
                             </div>
                         </div>
                     ))}
