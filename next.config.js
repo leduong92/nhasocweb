@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['fakestoreapi.com', 'images.pexels.com, '],
         remotePatterns: [
             {
                 protocol: 'http',
@@ -9,13 +8,14 @@ const nextConfig = {
                 port: '5000',
             },
             {
-                protocol: 'https',
-                hostname: 'images.pexels.com',
+                protocol: 'http',
+                hostname: '172.18.108.243',
+                port: '5046',
             },
         ],
     },
     env: {
-        BASE_URL: 'http://localhost:5046/api',
+        BASE_URL: 'http://172.18.108.243:5046/api',
         BASE_IMAGE_URL: 'http://172.18.108.243:5046/',
     },
 };
