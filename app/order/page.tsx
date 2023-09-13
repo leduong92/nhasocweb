@@ -72,7 +72,7 @@ const Order = () => {
             <BreadCrumb router={`order`} name='Giỏ hàng' />
             <div className='container py-5'>
                 <div className='flex justify-center pb-2'>
-                    <h1 className='text-[20px] font-bold '>Đơn hàng của bạn</h1>
+                    <h1 className='text-[40px] font-bold '>Đơn hàng của bạn</h1>
                 </div>
                 <div className='flex flex-col md:grid md:grid-cols-2 gap-10 xl:grid grid-cols-2  p-5'>
                     <div className='flex flex-col gap-2 rounded-md '>

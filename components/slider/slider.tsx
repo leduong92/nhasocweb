@@ -48,6 +48,7 @@ const Slider = () => {
                             sizes='100vw'
                             priority
                             className='object-cover w-screen h-full relative'
+                            onClick={() => router.push(`${img.url}`)}
                         />
 
                         <div className='absolute bottom-0 h-96 w-full bg-gradient-to-t from-gray-500/70  z-0'></div>
