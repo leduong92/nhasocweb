@@ -12,11 +12,16 @@ const nextConfig = {
                 hostname: '172.18.108.243',
                 port: '5046',
             },
+            {
+                protocol: 'http',
+                hostname: 'api.1live.io.vn',
+                port: '5000',
+            },
         ],
     },
     env: {
-        BASE_URL: 'http://172.18.108.243:5046/api',
-        BASE_IMAGE_URL: 'http://172.18.108.243:5046/',
+        BASE_URL: 'http://api.1live.io.vn/api',
+        BASE_IMAGE_URL: 'http://api.1live.io.vn/',
     },
 };
 
