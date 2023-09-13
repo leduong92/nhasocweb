@@ -48,7 +48,7 @@ const Page = () => {
                                 <Input type="email" placeholder="Email" />
                                 <Input type="name" placeholder="Họ tên" />
                                 <Input type="phone" placeholder="Số điện thoại" />
-                                <Textarea placeholder="Góp ý." />
+                                <Textarea placeholder="Góp ý" />
                             </div>
                             <div className='py-2'>
                                 <Button className='w-full'>Gửi</Button>

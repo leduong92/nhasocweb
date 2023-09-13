@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '../ui/button'
 import { Label } from '../ui/label'
+import { useRouter } from 'next/navigation'
 
 type SlideProps = {
     imgUrl: string,
@@ -16,14 +17,15 @@ type SlideProps = {
 
 const Slider = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
-    const images: SlideProps[] = [
-        { imgUrl: "/ma_2.jpg", base64: "", title: "Hạt Macca", url: '/products/category/22a96002-14f2-4ef3-a820-3f9c1be5f62f', description: "Hạt Macca là hạt giống của cây macadamia, có nguồn gốc từ Úc và được trồng ở nhiều nơi trên thế giới, chằng hạn như Brazil, Costa Rica, Hawaii, New Zealand, trong đó có Việt Nam..." },
-        { imgUrl: "/m_1.jpg", base64: "", title: "Granola", url: '/products/category/de547052-407b-4d21-b85d-8f534ce021b0', description: "Granola là món ăn quen thuộc của người Mỹ vào buổi sáng, đây là hỗn hợp của nhiều thực phẩm lành lạnh với hàm lượng chất dinh dưỡng cao, nhất là giàu protein." },
-        { imgUrl: "/h_4.jpg", base64: "", title: "Hạnh Nhân", url: '/products/category/59a89bce-2444-4061-8b3a-5e67b3cd5abd', description: "Hạnh nhân là một trong những loại hạt phổ biến trên thế giới. Thành phần dinh dưỡng của hạnh nhân giàu chất béo lành mạnh, chất chống oxy hóa, vitamin và khoáng chất." },
-        { imgUrl: "/o_1.jpg", base64: "", title: "Quả Óc Chó", url: '/products/category/8cea4866-3bb6-4c8c-a2b6-d5de042c8eb3', description: "Quả óc chó có nguồn gốc ở khu vực Địa Trung Hải và Trung Á. Óc chó giàu chất béo omega-3 và chứa lượng chất chống oxy hóa cao hơn hầu hết các loại thực phẩm khác." },
-        { imgUrl: "/h_1.jpg", base64: "", title: "Mix Hạt Dinh Dưỡng", url: '/products/category/afa34fd5-d333-41b7-b65b-265fbae5bbd4', description: "Mixed nuts là trộn hỗn hợp các loại hạt dinh dưỡng với nhau tạo thành 1 sản phẩm đa dạng hạt, việc mix các loại hạt dinh dưỡng giúp bạn đa dạng được các loại hạt bổ sung trong thực đơn hàng ngày." },
-    ]
+    const router = useRouter();
 
+    const images: SlideProps[] = [
+        { imgUrl: "/ma_2.jpg", base64: "", title: "Hạt Macca", url: '/products/category/9084363c-2404-45c5-a611-673ba2846a6c', description: "Hạt Macca là hạt giống của cây macadamia, có nguồn gốc từ Úc và được trồng ở nhiều nơi trên thế giới, chằng hạn như Brazil, Costa Rica, Hawaii, New Zealand, trong đó có Việt Nam..." },
+        { imgUrl: "/m_1.jpg", base64: "", title: "Granola", url: '/products/category/3b8472f6-2d18-4770-a449-d2f3a4ad09ef', description: "Granola là món ăn quen thuộc của người Mỹ vào buổi sáng, đây là hỗn hợp của nhiều thực phẩm lành lạnh với hàm lượng chất dinh dưỡng cao, nhất là giàu protein." },
+        { imgUrl: "/h_4.jpg", base64: "", title: "Hạnh Nhân", url: '/products/category/76de0415-456b-44fa-9945-db3d3b7f1b87', description: "Hạnh nhân là một trong những loại hạt phổ biến trên thế giới. Thành phần dinh dưỡng của hạnh nhân giàu chất béo lành mạnh, chất chống oxy hóa, vitamin và khoáng chất." },
+        { imgUrl: "/o_1.jpg", base64: "", title: "Quả Óc Chó", url: '/products/category/71f8cfd2-f0ab-49ae-9059-b0df1109c016', description: "Quả óc chó có nguồn gốc ở khu vực Địa Trung Hải và Trung Á. Óc chó giàu chất béo omega-3 và chứa lượng chất chống oxy hóa cao hơn hầu hết các loại thực phẩm khác." },
+        { imgUrl: "/h_1.jpg", base64: "", title: "Mix Hạt Dinh Dưỡng", url: '/products/category/22b875fb-62de-4b86-acdd-52ee130b1bb8', description: "Mixed nuts là trộn hỗn hợp các loại hạt dinh dưỡng với nhau tạo thành 1 sản phẩm đa dạng hạt, việc mix các loại hạt dinh dưỡng giúp bạn đa dạng được các loại hạt bổ sung trong thực đơn hàng ngày." },
+    ]
     const prevSlide = () => {
         setCurrentSlide(currentSlide === 0 ? 4 : (prev) => prev - 1);
     };
@@ -54,9 +56,9 @@ const Slider = () => {
                             <h1 className='font-bold text-4xl text-white md:text-5xl lg:text-8xl animate-fadeTopToBottom repeat-1 xl:text-8xl'>{img.title}</h1>
                             <Label className='hidden text-white font-extralight w-72 text-sm  line-clamp-1 md:hidden lg:flex xl:flex text-justify leading-normal animate-fadeLeftToRight 
                             repeat-1 md:text-2xl md:w-full lg:w-[800px] lg:text-4xl xl:w-[1200px] xl:text-4xl'>{img.description}</Label>
-                            <Link href={img.url}>
-                                <Button className='w-[200px] h-8 xl:h-10 rounded border-none bg-sky-400/70 hover:bg-sky-500 active:ring-1 md:h-12 transition-all duration-700 ease-in-out animate-buttonScale text-yellow-50'>SHOP NOW</Button>
-                            </Link>
+                            <Button className='w-[200px] h-8 xl:h-10 rounded border-none bg-sky-400/70 hover:bg-sky-500 active:ring-1 md:h-12 transition-all duration-700 ease-in-out animate-buttonScale text-yellow-50'
+                                onClick={() => router.push(`${img.url}`)}
+                            >SHOP NOW</Button>
                         </div>
 
 

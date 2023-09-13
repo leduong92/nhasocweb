@@ -38,12 +38,11 @@ const CartModel = () => {
                             {basketQuantity}
                         </span>
                     </div>
-
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-96">
+            <PopoverContent className="w-96 overflow-y-scroll max-h-[300px] ">
                 <div className="grid gap-4 p-1">
-                    <div className="space-y-2 flex justify-between items-center">
+                    <div className="flex justify-between items-center border-b pb-2">
                         <h4 className="font-medium leading-none text-gray-500">Giỏ hàng của bạn</h4>
                         <button onClick={() => dispatch(resetBasket())} >
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
