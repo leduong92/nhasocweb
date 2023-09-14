@@ -93,7 +93,7 @@ const Page = async ({ params: { id } }: Props) => {
                     </div>
 
                     <div className='flex flex-col gap-2'>
-                        <h1 className='font-bold text-lg text-[30px]'>{product.displayName}</h1>
+                        <h1 className='font-bold text-[30px]'>{product.displayName}</h1>
                         <div className='flex gap-3 justify-between'>
                             <span className='text-2xl'>{formatCurrency(product.price)}</span>
                             <span className='text-md font-light italic line-through'>{formatCurrency(product.originalPrice)}</span>

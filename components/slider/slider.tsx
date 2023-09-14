@@ -34,7 +34,7 @@ const Slider = () => {
     };
 
     return (
-        <div className='w-screen relative overflow-hidden md:h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] xl:h-[calc(100vh-80px)] z-10'>
+        <div className='w-full relative overflow-hidden md:h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)] xl:h-[calc(100vh-80px)] z-10'>
             <div className='flex overflow-hidden w-[500vw] h-full transition-all ease-in-out'>
                 {images.map((img, idx) => (
                     <div key={idx} className='flex duration-700 ease-in-out w-full overflow-hidden relative cursor-pointer' style={{ transform: `translateX(-${currentSlide * 100}vw)` }}>
