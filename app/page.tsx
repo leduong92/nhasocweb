@@ -39,14 +39,14 @@ export const metadata: Metadata = {
         initialScale: 1,
         maximumScale: 1,
     },
+    verification: {
+        google: "UBJ9DSWYnoH8TKUTi_dRP3fSEtWDgnuQHGy5npPRI_o"
+    }
 };
 
 export default function Home() {
     return (
         <div>
-            <Head>
-                <meta name="google-site-verification" content="UBJ9DSWYnoH8TKUTi_dRP3fSEtWDgnuQHGy5npPRI_o" />
-            </Head>
             <HomePage />
         </div>
     );
