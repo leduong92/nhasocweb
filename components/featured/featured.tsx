@@ -1,22 +1,18 @@
 "use client"
 import { IProduct } from '@/util/constant';
-import React, { useRef, useState } from 'react'
+import React, { TouchEventHandler, useEffect, useRef, useState } from 'react'
 import Link from 'next/link';
 import ProductImage from '../product-image';
 import { useStore } from '@/hooks/useStore';
-import { addToBasket, increaseBasketQuantity } from '@/store/actions';
-import { Label } from '../ui/label';
-import { Button } from '../ui/button';
 import { formatCurrency } from '@/util/formatCurrency';
 import AddToCartButton from '../product-card/add-cart-button';
 
 const Featured = ({ products }: { products: IProduct[] }) => {
 
     const { state, dispatch } = useStore();
-
     const basket = state.basket;
 
-    const listRef = useRef<HTMLDivElement>(null);
+    const listRef = useRef<HTMLDivElement | null>(null);
 
     const [slideNumber, setSlideNumber] = useState<number>(0);
     const [currentSlide, setCurrentSlide] = useState<number>(0);
@@ -59,7 +55,6 @@ const Featured = ({ products }: { products: IProduct[] }) => {
             setCurrentSlide(-distance * (slideNumber + 1));
         }
     }
-
     return (
         <div className='container py-3 overflow-hidden'>
             <h1 className='font-bold text-3xl py-3'>Sản phẩm nổi bật</h1>
@@ -97,10 +92,6 @@ const Featured = ({ products }: { products: IProduct[] }) => {
 
                             </Link>
                             <div className='w-full'>
-                                {/* <Button className='w-full h-9 bg-sky-300 hover:bg-sky-400 transition-all transform duration-300 delay-100
-                                 text-white active:ring-2'
-                                    onClick={() => dispatch(addToBasket(p, basket))}
-                                >Thêm giỏ hàng</Button> */}
                                 <AddToCartButton product={p} />
                             </div>
                         </div>
@@ -121,3 +112,4 @@ const Featured = ({ products }: { products: IProduct[] }) => {
 }
 
 export default Featured
+

@@ -53,7 +53,7 @@ const Slider = () => {
 
                         <div className='absolute bottom-0 h-96 w-full bg-gradient-to-t from-gray-500/70  z-0'></div>
 
-                        <div className='flex flex-col absolute bottom-6 left-8 gap-10 md:w-[700px] md:bottom-5 md:left-20 lg:left-14 lg:bottom-18 lg:w-[800px] lg:bottom-36 xl:left-40 xl:w-full '>
+                        <div className='flex flex-col absolute bottom-6 left-8 gap-10 md:w-[600px] md:bottom-5 md:left-20 lg:left-14 lg:bottom-18 lg:w-[700px] lg:bottom-36 xl:left-40 xl:w-full '>
                             <h1 className='font-bold text-4xl text-white md:text-5xl lg:text-8xl animate-fadeTopToBottom repeat-1 xl:text-8xl'>{img.title}</h1>
                             <Label className='hidden text-white font-extralight w-72 text-sm  line-clamp-1 md:hidden lg:flex xl:flex text-justify leading-normal animate-fadeLeftToRight 
                             repeat-1 md:text-2xl md:w-full lg:w-[800px] lg:text-4xl xl:w-[1200px] xl:text-4xl'>{img.description}</Label>
