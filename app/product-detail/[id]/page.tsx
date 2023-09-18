@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
     return {
         metadataBase: new URL('https://nhasoc.com'),
         alternates: {
-            canonical: `/product-detail/${id}`,
+            canonical: `https://nhasoc.com/product-detail/${id}`,
             languages: {
                 'vi': '/vi'
             }

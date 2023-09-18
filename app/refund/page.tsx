@@ -5,7 +5,7 @@ export const metadata: Metadata = {
     title: "Nhà Sóc Store | Đổi trả",
     description: "Nhà Sóc Store chuyên cung cấp các loại hạt dinh dưỡng, Hạt Mác ca, Macca, Hạt điều, Hạnh nhân, Granola, óc chó đỏ, óc chó vàng và các sản phẩm khác từ tây nguyên.",
     alternates: {
-        canonical: '/refund',
+        canonical: 'https://nhasoc.com/refund',
         languages: {
             'vi': '/vi'
         }

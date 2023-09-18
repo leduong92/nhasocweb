@@ -1,5 +1,6 @@
 import BreadCrumb from '@/components/breadcrumb/bread-crumb'
 import { Button } from '@/components/ui/button'
+import { Metadata } from 'next'
 import Image from 'next/image.js'
 import React from 'react'
 
@@ -26,6 +27,45 @@ const data = [
             "https://images.pexels.com/photos/2916450/pexels-photo-2916450.jpeg",
     }
 ]
+
+export const metadata: Metadata = {
+    title: "Nhà Sóc Store | Blog",
+    description: "Nhà Sóc Store chuyên cung cấp các loại hạt dinh dưỡng, Hạt Mác ca, Macca, Hạt điều, Hạnh nhân, Granola, óc chó đỏ, óc chó vàng và các sản phẩm khác từ tây nguyên.",
+    alternates: {
+        canonical: 'https://nhasoc.com/blog',
+        languages: {
+            'vi': '/vi'
+        }
+    },
+    applicationName: 'Nhà Sóc Store',
+    authors: [{ name: 'jame' }, { name: 'johson', url: 'https://nhasoc.com' }],
+    keywords: ['Nhà Sóc, Mác Ca, Macca, Hạt điều, Granola, Hạnh nhân, dinh dưỡng'],
+    colorScheme: 'light',
+    creator: 'jamejohson',
+
+    robots: {
+        index: true,
+        follow: true,
+        nocache: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            noimageindex: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        }
+    },
+    icons: {
+        icon: '/favicon.ico',
+        apple: '/apple-icon.ico'
+    },
+    viewport: {
+        width: 'device-width',
+        initialScale: 1,
+        maximumScale: 1,
+    },
+};
 
 const Page = () => {
     return (
