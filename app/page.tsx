@@ -1,5 +1,6 @@
 import HomePage from "@/components/home/home";
 import { Metadata } from "next";
+import Head from "next/head";
 
 export const metadata: Metadata = {
     title: "Nhà Sóc Store | Official Website",
@@ -43,6 +44,9 @@ export const metadata: Metadata = {
 export default function Home() {
     return (
         <div>
+            <Head>
+                <meta name="google-site-verification" content="UBJ9DSWYnoH8TKUTi_dRP3fSEtWDgnuQHGy5npPRI_o" />
+            </Head>
             <HomePage />
         </div>
     );

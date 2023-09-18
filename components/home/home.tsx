@@ -4,6 +4,7 @@ import Featured from "../featured/featured";
 import { IProduct } from "@/util/constant";
 import NewProduct from "../new-product/new-product";
 import NewsLetter from "../news-letter/news-letter";
+import Head from "next/head";
 
 async function getFeatureds() {
 
@@ -28,6 +29,7 @@ const HomePage = async () => {
 
     return (
         <div >
+
             <Slider />
 
             <Featured products={featureds} />
