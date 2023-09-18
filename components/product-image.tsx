@@ -5,17 +5,18 @@ import React, { useState } from 'react'
 
 type ProductImageProps = {
     product: IProduct,
-    fill?: boolean
+    fill?: boolean,
+    src?: string
 }
 
-const ProductImage = ({ product, fill }: ProductImageProps) => {
+const ProductImage = ({ product, fill, src }: ProductImageProps) => {
     const [loading, setLoading] = useState(true);
 
     return (
         <>
             {product.productImages && fill ? (
                 <Image
-                    src={`${process.env.BASE_IMAGE_URL}${product.productImages[0]?.url}`}
+                    src={src ? src : `${process.env.BASE_IMAGE_URL}${product.productImages[0]?.url}`}
                     alt={product.metaTitle}
                     fill
                     className={`object-cover duration-700 ease-in-out group-hover:opacity-75 ${loading

@@ -2,6 +2,7 @@ import { IProduct } from '@/util/constant'
 import Image from 'next/image'
 import React from 'react'
 import ShopNowButton from './shop-now'
+import ProductImage from '../product-image'
 
 const NewProduct = ({ products }: { products: IProduct[] }) => {
 
@@ -13,7 +14,7 @@ const NewProduct = ({ products }: { products: IProduct[] }) => {
 
                 {products.map((itm) => (
                     <div key={itm.id} className="group relative flex items-center justify-center h-72 ">
-                        <Image
+                        {/* <Image
                             src={`${process.env.BASE_IMAGE_URL}${itm.productImages.find(x => x.isDefault === true)?.url}`}
                             alt={itm.displayName}
                             title={itm.displayName}
@@ -21,11 +22,8 @@ const NewProduct = ({ products }: { products: IProduct[] }) => {
                             style={{ width: '100%', height: '100%' }}
                             sizes='100vw'
                             className="py-2 object-cover  cursor-pointer"
-                        />
-                        {/* <button className="absolute border-none bg-sky-300 p-2  transition transform 
-                                    -translate-x-40 duration-300 delay-100 ease-in-out invisible group-hover:visible group-hover:scale-100 hover:bg-sky-400 active:ring-2
-                                    group-hover:translate-x-0
-                                    ">Shop now</button> */}
+                        /> */}
+                        <ProductImage product={itm} fill src={`${process.env.BASE_IMAGE_URL}${itm.productImages.find(x => x.isDefault === true)?.url}`} />
                         <ShopNowButton product={itm} />
                     </div>
                 ))}

@@ -8,9 +8,47 @@ import { Textarea } from '@/components/ui/textarea'
 import { useStore } from '@/hooks/useStore'
 import { IBasket } from '@/util/constant'
 import { formatCurrency } from '@/util/formatCurrency'
+import { Metadata } from 'next'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
+export const metadata: Metadata = {
+    title: "Nhà Sóc Store | Order",
+    description: "Nhà Sóc Store chuyên cung cấp các loại hạt dinh dưỡng, Hạt Mác ca, Macca, Hạt điều, Hạnh nhân, Granola, óc chó đỏ, óc chó vàng và các sản phẩm khác từ tây nguyên.",
+    alternates: {
+        canonical: '/order',
+        languages: {
+            'vi': '/vi'
+        }
+    },
+    applicationName: 'Nhà Sóc Store',
+    authors: [{ name: 'jame' }, { name: 'johson', url: 'https://nhasoc.com' }],
+    keywords: ['Nhà Sóc, Mác Ca, Macca, Hạt điều, Granola, Hạnh nhân, dinh dưỡng'],
+    colorScheme: 'light',
+    creator: 'jamejohson',
 
+    robots: {
+        index: true,
+        follow: true,
+        nocache: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            noimageindex: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        }
+    },
+    icons: {
+        icon: '/favicon.ico',
+        apple: '/apple-icon.ico'
+    },
+    viewport: {
+        width: 'device-width',
+        initialScale: 1,
+        maximumScale: 1,
+    },
+};
 const Order = () => {
 
     const { state, dispatch } = useStore();
