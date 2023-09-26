@@ -15,23 +15,23 @@ module.exports = {
                 "2xl": "1400px",
             },
         },
-        screens: {
-            'sm': { 'min': '640px', 'max': '739px' },
-            // => @media (min-width: 640px and max-width: 767px) { ... }
+        // screens: {
+        //     'sm': { 'min': '640px', 'max': '739px' },
+        //     // => @media (min-width: 640px and max-width: 767px) { ... }
 
-            'md': { 'min': '740px', 'max': '1023px' },
-            // => @media (min-width: 768px and max-width: 1023px) { ... }
+        //     'md': { 'min': '740px', 'max': '1023px' },
+        //     // => @media (min-width: 768px and max-width: 1023px) { ... }
 
-            'lg': { 'min': '1024px', 'max': '1279px' },
-            // => @media (min-width: 1024px and max-width: 1279px) { ... }
+        //     'lg': { 'min': '1024px', 'max': '1279px' },
+        //     // => @media (min-width: 1024px and max-width: 1279px) { ... }
 
-            'xl': '1280px',
-            // 'xl': { 'min': '1280px', 'max': '1535px' },
-            // => @media (min-width: 1280px and max-width: 1535px) { ... }
+        //     'xl': '1280px',
+        //     // 'xl': { 'min': '1280px', 'max': '1535px' },
+        //     // => @media (min-width: 1280px and max-width: 1535px) { ... }
 
-            // '2xl': { 'min': '1536px' },
-            // => @media (min-width: 1536px) { ... }
-        },
+        //     // '2xl': { 'min': '1536px' },
+        //     // => @media (min-width: 1536px) { ... }
+        // },
         extend: {
             colors: {
                 border: "hsl(var(--border))",
@@ -93,6 +93,19 @@ module.exports = {
                 "buttonScale": {
                     "0%": { transform: "scale(0)" },
                     "100%": { transform: "scale(1)" },
+                },
+                fadeIn: {
+                    from: { opacity: 0 },
+                    to: { opacity: 1 }
+                },
+                marquee: {
+                    '0%': { transform: 'translateX(0%)' },
+                    '100%': { transform: 'translateX(-100%)' }
+                },
+                blink: {
+                    '0%': { opacity: 0.2 },
+                    '20%': { opacity: 1 },
+                    '100% ': { opacity: 0.2 }
                 }
             },
             animation: {
@@ -101,6 +114,9 @@ module.exports = {
                 "fadeTopToBottom": "fadeTopToBottom 1.5s ease-in-out",
                 "fadeLeftToRight": "fadeLeftToRight 1.5s ease-in-out",
                 "buttonScale": "buttonScale 1.5s ease-in-out",
+                fadeIn: 'fadeIn .3s ease-in-out',
+                carousel: 'marquee 60s linear infinite',
+                blink: 'blink 1.4s both infinite'
             },
         },
     },

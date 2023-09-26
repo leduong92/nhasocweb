@@ -1,65 +1,93 @@
-"use client"
+//"use client"
 import { IProduct } from '@/util/constant';
-import React, { TouchEventHandler, useEffect, useRef, useState } from 'react'
+import React from 'react'
 import Link from 'next/link';
-import ProductImage from '../product-image';
-import { useStore } from '@/hooks/useStore';
-import { formatCurrency } from '@/util/formatCurrency';
-import AddToCartButton from '../product-card/add-cart-button';
+import GridTileImage from '../grid/tile';
 
 const Featured = ({ products }: { products: IProduct[] }) => {
 
-    const { state, dispatch } = useStore();
-    const basket = state.basket;
+    // const { state, dispatch } = useStore();
+    // const basket = state.basket;
 
-    const listRef = useRef<HTMLDivElement | null>(null);
+    // const listRef = useRef<HTMLDivElement | null>(null);
 
-    const [slideNumber, setSlideNumber] = useState<number>(0);
-    const [currentSlide, setCurrentSlide] = useState<number>(0);
+    // const [slideNumber, setSlideNumber] = useState<number>(0);
+    // const [currentSlide, setCurrentSlide] = useState<number>(0);
 
-    const handleClick = (direction: string) => {
-        let distance = listRef.current?.offsetWidth as number;
+    // const handleClick = (direction: string) => {
+    //     let distance = listRef.current?.offsetWidth as number;
 
-        let windownWidth = window.innerWidth as number;
+    //     let windownWidth = window.innerWidth as number;
 
-        let numberOfSlide = 0;
+    //     let numberOfSlide = 0;
 
-        if (windownWidth < 425) {
-            numberOfSlide = products.length
-        } else if (windownWidth > 425 && windownWidth < 850) {
-            numberOfSlide = products.length - 2
-        } else if (windownWidth > 851 && windownWidth < 1179) {
-            numberOfSlide = products.length - 3
-        } else if (windownWidth > 1180) {
-            numberOfSlide = products.length - 4
-        }
+    //     if (windownWidth < 425) {
+    //         numberOfSlide = products.length
+    //     } else if (windownWidth > 425 && windownWidth < 850) {
+    //         numberOfSlide = products.length - 2
+    //     } else if (windownWidth > 851 && windownWidth < 1179) {
+    //         numberOfSlide = products.length - 3
+    //     } else if (windownWidth > 1180) {
+    //         numberOfSlide = products.length - 4
+    //     }
 
-        if (direction === "left") {
-            setSlideNumber((prev) => prev - 1)
-            setCurrentSlide(currentSlide + distance);
+    //     if (direction === "left") {
+    //         setSlideNumber((prev) => prev - 1)
+    //         setCurrentSlide(currentSlide + distance);
 
-            if (slideNumber <= 0) {
-                setSlideNumber(numberOfSlide)
-                setCurrentSlide(-distance * numberOfSlide);
-                return;
-            }
-        }
+    //         if (slideNumber <= 0) {
+    //             setSlideNumber(numberOfSlide)
+    //             setCurrentSlide(-distance * numberOfSlide);
+    //             return;
+    //         }
+    //     }
 
-        if (direction === "right") {
-            if (slideNumber >= numberOfSlide) {
-                setSlideNumber(0)
-                setCurrentSlide(0);
-                return;
-            }
-            setSlideNumber((prev) => prev + 1)
-            setCurrentSlide(-distance * (slideNumber + 1));
-        }
-    }
+    //     if (direction === "right") {
+    //         if (slideNumber >= numberOfSlide) {
+    //             setSlideNumber(0)
+    //             setCurrentSlide(0);
+    //             return;
+    //         }
+    //         setSlideNumber((prev) => prev + 1)
+    //         setCurrentSlide(-distance * (slideNumber + 1));
+    //     }
+    // }
+
     return (
-        <div className='container py-3 overflow-hidden'>
-            <h1 className='font-bold text-3xl py-3'>Sản phẩm nổi bật</h1>
+        <div className='py-3 overflow-hidden'>
 
-            <div className='flex relative'>
+            <div className='container'>
+                <h1 className='font-bold text-3xl py-3'>Sản phẩm nổi bật</h1>
+            </div>
+
+            <div className='w-full overflow-x-auto pb-6 pt-1'>
+                <ul className='flex animate-carousel gap-4'>
+                    {products.map((p, idx) => (
+                        <li
+                            key={p.id}
+                            className="relative aspect-square h-[30vh] max-h-[275px] w-1/3 max-w-[475px] flex-none md:w-1/3"
+                        >
+                            <Link href={`/product-detail/${p.id}`}>
+                                <GridTileImage
+                                    alt={p.metaTitle}
+                                    label={{
+                                        title: p.metaTitle,
+                                        amount: p.originalPrice,
+                                        currencyCode: 'vi-VN'
+                                    }}
+                                    src={`${process.env.BASE_IMAGE_URL}${p.productImages[0]?.url}`}
+                                    fill
+                                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+                                />
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+
+
+            {/* <div className='flex relative'>
                 <div className='absolute flex items-center top-0 bottom-0 left-0 mr-auto h-full z-10 cursor-pointer' onClick={() => handleClick("left")} >
                     <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50
                   
@@ -106,7 +134,7 @@ const Featured = ({ products }: { products: IProduct[] }) => {
 
                     </span>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

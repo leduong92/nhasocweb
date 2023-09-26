@@ -29,7 +29,6 @@ const OrderPage = () => {
         orderItems: {} as IBasket
     })
 
-
     const handleChange = (e: any) => {
         setOrder((prev) => ({ ...prev, [e.target.name]: e.target.value }));
         if (order.buyerPhoneNumber.length > 0) {
@@ -68,21 +67,11 @@ const OrderPage = () => {
         <>
             <div className='flex flex-col gap-2 rounded-md '>
                 <div className="grid gap-2">
-                    {basket.items.map((itm) => (
-                        <BasketItem key={itm.id} item={itm} />
-                    ))}
+                    <BasketItem />
                 </div>
 
-                <div className='flex items-center justify-between py-2'>
-                    <Label className='text-md'>Tạm tính ({basketQuantity} sản phẩm):</Label>
-                    <Label className='text-xl font-bold'>{formatCurrency(basket.items.reduce((total, item) => {
-                        return total + ((item.price || 0) * item.quantity)
-                    }, 0))}</Label>
-                </div>
             </div>
-
-
-            <div className='flex flex-col gap-3  sticky top-[130px]'>
+            <div className='flex flex-col gap-3  sticky top-[130px] py-4'>
                 <div className='flex flex-col gap-2'>
                     <div className="grid w-full items-center gap-1.5">
                         <div>

@@ -4,14 +4,13 @@ import ProductImage from '../product-image'
 import Link from 'next/link'
 import { formatCurrency } from '@/util/formatCurrency'
 import AddToCartButton from './add-cart-button'
-
 const ProductCard = ({ products }: { products: IProduct[] }) => {
     return (
         <>
-            <div className='grid grid-flow-row grid-cols-1 md:grid md:grid-cols-2 lg:grid lg:grid-cols-4 xl:grid xl:grid-cols-4 gap-y-8 gap-x-3 my-4'>
+            <div className='grid grid-flow-row grid-cols-1 md:grid md:grid-cols-2 lg:grid lg:grid-cols-4 xl:grid xl:grid-cols-4 gap-y-8 gap-x-3 my-4 '>
                 {products.map((p) => (
                     <div key={p.id}
-                        className='relative flex flex-col p-2 rounded border group hover:scale-105 transition-transform ease-out duration-200 shadow-sm cursor-pointer'
+                        className='relative flex flex-col p-2 rounded border group hover:scale-105 hover:border-blue-600 transition-transform ease-in-out duration-500 shadow-sm cursor-pointer'
                     >
                         <div className='w-full relative flex flex-row justify-between pb-2 z-10'>
                             <span className='text-sm italic  top-2 border w-max rounded-full p-1 bg-sky-200' >Giảm {(p.originalPrice - p.price) / 1000}% </span>

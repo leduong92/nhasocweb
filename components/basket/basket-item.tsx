@@ -5,54 +5,109 @@ import React from 'react'
 import { Button } from '../ui/button';
 import { formatCurrency } from '@/util/formatCurrency';
 import Image from 'next/image';
+import Link from 'next/link';
+import Price from '../price';
 
 
-const BasketItem = ({ item }: { item: IBasketItem }) => {
+const BasketItem = () => {
 
     const { state, dispatch } = useStore();
 
     const basket = state.basket;
 
+
+    const total = basket.items.reduce((total, item) => {
+        return total + ((item.price || 0) * item.quantity)
+    }, 0);
+
     return (
-        <div className='flex flex-col border-b gap-3 py-3'>
-            <div className='flex justify-between items-center gap-5'>
-                <div className='relative w-28 h-28 bg-slate-300 '>
-                    <Image
-                        src={`${process.env.BASE_IMAGE_URL}${item.imageUrl}`}
-                        fill
-                        alt={item.name}
-                        title={item.name}
-                    />
-                </div>
-                <div className='flex flex-col gap-2 flex-1'>
-                    <div>
-                        <h1>Sku: {item.sku}</h1>
-                        <span>{item.name}</span>
-                    </div>
+        <>
+            <div className="flex h-full flex-col justify-between overflow-hidden p-1">
+                <ul className="flex-grow overflow-auto py-4">
+                    {state.basket.items.map((item, idx) => {
+                        return (
+                            <li
+                                key={item.id}
+                                className="flex w-full flex-col border-b border-neutral-300 dark:border-neutral-700"
+                            >
 
-                    <div className='flex justify-between'>
-                        <div className='flex items-center gap-2'>
-                            <Button size="msm" onClick={() => dispatch(decreaseBasketQuantity(item, basket))} disabled={item.quantity === 1 ? true : false} >-</Button>
-                            <div>{item.quantity}</div>
-                            <Button size="msm" onClick={() => dispatch(increaseBasketQuantity(item, basket))} >+</Button>
-                        </div>
-                        <div>
-                            <Button variant="destructive" size="msm" onClick={() => dispatch(removeBasketItem(item, basket))} >
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                </svg>
+                                <div className='relative flex w-full flex-row justify-between px-1 py-4'>
 
-                            </Button>
-                        </div>
-                    </div>
-                    <div>
-                        <span>Tổng: {formatCurrency(item.quantity * item.price)}</span>
+                                    <div className='absolute z-40 -mt-2 ml-[55px]'>
+                                        <button onClick={() => dispatch(removeBasketItem(item, basket))} aria-label="Remove cart item" className="ease flex h-[17px] w-[17px] items-center justify-center rounded-full bg-neutral-500 transition-all duration-200">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true" className="hover:text-accent-3 mx-[1px] h-4 w-4 text-white dark:text-black"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                                    </div>
+
+                                    <Link
+                                        href={``}
+                                        className="z-30 flex flex-row space-x-4"
+                                    >
+
+                                        <div className="relative h-16 w-16 cursor-pointer overflow-hidden rounded-md border border-neutral-300 bg-neutral-300 dark:border-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-800">
+                                            <Image
+                                                className="h-full w-full object-cover"
+                                                width={64}
+                                                height={64}
+                                                alt={
+                                                    item.name
+                                                }
+                                                src={`${process.env.BASE_IMAGE_URL}${item.imageUrl}`}
+                                            />
+                                        </div>
+
+                                        <div className="flex flex-1 flex-col text-base">
+                                            <span className="leading-tight">
+                                                {item.name}
+                                            </span>
+                                            {item.sku ? (
+                                                <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                                                    {item.sku}
+                                                </p>
+                                            ) : null}
+                                        </div>
+                                    </Link>
+
+                                    <div className="flex h-16 flex-col justify-between">
+                                        <Price
+                                            className="flex justify-end space-y-2 text-right text-sm"
+                                            amount={item.price}
+                                            currencyCode=''
+                                        />
+                                        <div className="ml-auto flex h-9 flex-row items-center rounded-full border border-neutral-200 dark:border-neutral-700">
+                                            <button onClick={() => dispatch(decreaseBasketQuantity(item, basket))} disabled={item.quantity === 1 ? true : false} aria-label="Reduce item quantity" className="ease flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full px-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80 ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true" className="h-4 w-4 dark:text-neutral-500"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15"></path></svg></button>
+
+                                            <p className="w-6 text-center">
+                                                <span className="w-full text-sm">{item.quantity}</span>
+                                            </p>
+                                            <button onClick={() => dispatch(increaseBasketQuantity(item, basket))} aria-label="Increase item quantity" className="ease flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full px-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true" className="h-4 w-4 dark:text-neutral-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path></svg></button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </li>
+                        )
+                    })}
+                </ul>
+
+                <div className="py-4 text-sm text-neutral-500 dark:text-neutral-400">
+                    <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1 dark:border-neutral-700">
+                        <p>Tổng</p>
+                        <Price
+                            className="text-right text-base text-black dark:text-white"
+                            amount={total}
+                            currencyCode={''}
+                        />
                     </div>
                 </div>
+                <a
+                    href={`/order`}
+                    className="block w-full rounded-full bg-blue-600 p-3 text-center text-sm font-medium text-white opacity-90 hover:opacity-100"
+                >
+                    Đặt hàng
+                </a>
             </div>
-
-
-        </div>
+        </>
     )
 }
 

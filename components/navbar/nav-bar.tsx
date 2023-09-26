@@ -47,11 +47,11 @@ const NavBar = () => {
                             {link.title}
                         </NavLink>
                     ))}
-                    <div>
+                    <div className='flex items-center'>
                         <CartModel />
                     </div>
                 </div>
-                <div className='flex items-center gap-2 md:hidden lg:hidden xl:hidden'>
+                <div className='flex items-center gap-5 md:hidden lg:hidden xl:hidden'>
                     <CartModel />
                     <Sidebar />
                 </div>
