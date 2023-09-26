@@ -82,10 +82,6 @@ const page = async ({ params }: Props) => {
                     <span>{products.length} Sản phẩm</span>
                 </div>
 
-                {/* <div >
-                    <SortCategoryMenu />
-                </div> */}
-
                 <div className='md:hidden lg:hidden xl:hidden'>
                     <CategoryDropdownMenu />
                 </div>
