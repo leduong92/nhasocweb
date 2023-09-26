@@ -22,7 +22,7 @@ const Price = ({
     return (
         <p suppressHydrationWarning={true} className={className}>
             {CURRENCY_FORMATTER.format(amount)}
-            <span className={clsx('ml-1 inline', currencyCodeClassName)}>{`${currencyCode}`}</span>
+            {/* <span className={clsx('ml-1 inline', currencyCodeClassName)}>{`${currencyCode}`}</span> */}
         </p>
     )
 }

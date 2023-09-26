@@ -9,7 +9,7 @@ const AddToCartButton = ({ product, quantity }: { product: IProduct, quantity?: 
 
     const basket = state.basket;
     return (
-        <button className='w-full h-9 bg-sky-300 hover:bg-sky-400 transition-all transform duration-300 delay-100 text-white active:ring-2'
+        <button className='w-full h-11 bg-sky-500 hover:bg-sky-700 transition-all transform duration-300 delay-100 text-white active:ring-2'
             onClick={() => dispatch(addToBasket(product, basket, quantity))}
         >Thêm giỏ hàng</button>
     )

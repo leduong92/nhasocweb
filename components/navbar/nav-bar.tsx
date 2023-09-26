@@ -35,7 +35,7 @@ const links = [
 
 const NavBar = () => {
     return (
-        <header className="py-2 border-b fixed top-0 z-40  bg-background w-full  ">
+        <header className="py-2 border-b fixed top-0 z-40  bg-background w-screen">
             <div className='container flex items-center justify-between'>
 
                 <LogoLink />

@@ -23,7 +23,7 @@ const ProductImage = ({ product, fill, src }: ProductImageProps) => {
                         ? "scale-90 blur-xl grayscale"
                         : "scale-100 blur-0 grayscale-0"
                         }}`}
-                    sizes='100vw'
+                    sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
                     onLoadingComplete={() => setLoading(false)}
                 />
             ) : (
@@ -32,8 +32,7 @@ const ProductImage = ({ product, fill, src }: ProductImageProps) => {
                     alt={product.metaTitle}
                     width={400}
                     height={1000}
-                    style={{ width: '100%', height: 'auto' }}
-                    sizes='100vw'
+                    sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
                     className={`object-cover duration-700 ease-in-out group-hover:opacity-75 ${loading
                         ? "scale-90 blur-xl grayscale"
                         : "scale-100 blur-0 grayscale-0"
