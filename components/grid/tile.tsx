@@ -16,7 +16,7 @@ type TileProps = {
 
 const GridTileImage = ({ isInteractive = true, active, label, ...props }: TileProps & React.ComponentProps<typeof Image>) => {
     return (
-        <div className={clsx('flex h-full w-full items-center justify-center overflow-hidden rounded-lg border bg-white hover:border-blue-600 dark:bg-black',
+        <div className={clsx('flex h-full w-full items-center justify-center overflow-hidden rounded-lg border bg-white hover:border-blue-600 dark:bg-black p-3',
             {
                 realative: label,
                 'border-2 border-blue-600': active,
@@ -25,7 +25,7 @@ const GridTileImage = ({ isInteractive = true, active, label, ...props }: TilePr
             {props.src ? (
                 // eslint-disable-next-line jsx-a11y/alt-text
                 <Image
-                    className={clsx(`relative h-full w-full object-cover`, {
+                    className={clsx('!relative h-full w-full object-cover', {
                         'transition duration-500 ease-in-out hover:scale-105': isInteractive
                     })}
                     {...props}
