@@ -1,12 +1,12 @@
-import ProductImageThumb from '@/components/product-detail/product-image-thumb';
-import InteractiveQuantity from '@/components/product-detail/interactive-quantity';
+import ProductImageThumb from '@/components/product/product-detail/product-image-thumb';
+import InteractiveQuantity from '@/components/product/product-detail/interactive-quantity';
 import { IProduct } from '@/util/constant';
 import React, { Suspense } from 'react'
-import BreadCrumb from '@/components/breadcrumb/bread-crumb';
+import BreadCrumb from '@/components/layout/bread-crumb';
 import { Metadata, ResolvingMetadata } from 'next';
 import { formatCurrency } from '@/util/formatCurrency';
 import Price from '@/components/price';
-import RelatedProducts from '@/components/product-card/related-product';
+import RelatedProducts from '@/components/product/product-card/related-product';
 type Props = {
     params: {
         id: string

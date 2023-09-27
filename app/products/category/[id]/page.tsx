@@ -1,6 +1,6 @@
 
-import CategoryDropdownMenu from '@/components/category-dropdown-menu/category-dropdown-menu';
-import ProductCard from '@/components/product-card/product-card';
+import CategoryDropdownMenu from '@/components/product/category-dropdown-menu';
+import ProductCard from '@/components/product/product-card/product-card';
 import { IProduct } from '@/util/constant';
 import { Metadata, ResolvingMetadata } from 'next';
 import React from 'react'

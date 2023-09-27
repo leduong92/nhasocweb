@@ -1,4 +1,4 @@
-import BreadCrumb from '@/components/breadcrumb/bread-crumb';
+import BreadCrumb from '@/components/layout/bread-crumb';
 import NavLink from '@/components/nav-link';
 import { ICategory } from '@/util/constant';
 import React from 'react';

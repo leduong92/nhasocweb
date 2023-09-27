@@ -1,4 +1,4 @@
-import BreadCrumb from '@/components/breadcrumb/bread-crumb'
+import BreadCrumb from '@/components/layout/bread-crumb'
 import { Button } from '@/components/ui/button'
 import { Metadata } from 'next'
 import Image from 'next/image.js'

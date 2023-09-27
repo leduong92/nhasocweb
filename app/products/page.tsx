@@ -1,5 +1,5 @@
-import CategoryDropdownMenu from '@/components/category-dropdown-menu/category-dropdown-menu';
-import ProductCard from '@/components/product-card/product-card';
+import CategoryDropdownMenu from '@/components/product/category-dropdown-menu';
+import ProductCard from '@/components/product/product-card/product-card';
 import { IProductPaging } from '@/util/constant';
 import { Metadata } from 'next';
 import React from 'react'

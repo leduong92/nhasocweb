@@ -1,6 +1,6 @@
 'use client'
 
-import BreadCrumb from "@/components/breadcrumb/bread-crumb"
+import BreadCrumb from "@/components/layout/bread-crumb"
 import { useRouter } from "next/navigation"
 
 export default function GlobalError({

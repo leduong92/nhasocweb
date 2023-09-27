@@ -1,9 +1,9 @@
-import NavBar from "@/components/navbar/nav-bar";
+import NavBar from "@/components/layout/navbar/nav-bar";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "../context/theme-provider";
-import Footer from "@/components/footer/footer";
+import Footer from "@/components/layout/home/footer";
 import GotoTop from "@/components/go-top";
 import { Approvider } from "@/store/globalState";
 

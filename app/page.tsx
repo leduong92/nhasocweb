@@ -1,4 +1,4 @@
-import HomePage from "@/components/home/home";
+import HomePage from "@/components/layout/home/home";
 import { Metadata } from "next";
 import Head from "next/head";
 

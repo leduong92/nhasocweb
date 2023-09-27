@@ -1,4 +1,4 @@
-import BreadCrumb from '@/components/breadcrumb/bread-crumb'
+import BreadCrumb from '@/components/layout/bread-crumb'
 import { Metadata } from 'next';
 import React from 'react'
 export const metadata: Metadata = {

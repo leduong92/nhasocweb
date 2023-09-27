@@ -1,5 +1,5 @@
-import BreadCrumb from '@/components/breadcrumb/bread-crumb'
-import OrderPage from '@/components/order-page/order'
+import BreadCrumb from '@/components/layout/bread-crumb'
+import OrderPage from '@/components/orders/order-page'
 import { Metadata } from 'next'
 import React from 'react'
 export const metadata: Metadata = {
