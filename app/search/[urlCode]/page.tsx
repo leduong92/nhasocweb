@@ -13,6 +13,7 @@ type GetProductProps = {
 }
 export const revalidate = 0
 
+
 async function getCollectionProducts({ category, reverse, sortKey }: GetProductProps): Promise<IProductPaging> {
 
     let res = await fetch(`${process.env.BASE_URL}/Product/search`, {
@@ -25,7 +26,11 @@ async function getCollectionProducts({ category, reverse, sortKey }: GetProductP
             'reverse': reverse,
             'sortKey': sortKey
         }),
+        next: {
+            revalidate: 0
+        }
     });
+
     return res.json();
 }
 

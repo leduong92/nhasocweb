@@ -5,6 +5,7 @@ import NavLink from '../../nav-link';
 import CartModel from '../../orders/basket/basket-model';
 import LogoLink from './logo-link';
 import Search from './search';
+import MobileMenu from './mobile-menu';
 
 const links = [
     {
@@ -15,7 +16,7 @@ const links = [
     {
         id: 2,
         title: "Sản phẩm",
-        url: "/products",
+        url: "/search",
     },
     {
         id: 3,
@@ -36,14 +37,18 @@ const links = [
 
 const NavBar = () => {
     return (
-        <header className="py-2 border-b fixed top-0 z-40  bg-background w-screen">
-            <div className='container flex items-center justify-between'>
+        <nav className="py-2 border-b fixed top-0 z-40  bg-background w-screen">
+            <div className="block flex-none md:hidden">
+                <MobileMenu links={links} />
+            </div>
+
+            <div className='hidden container md:flex items-center justify-between'>
 
                 <LogoLink />
                 <div>
                     <Search />
                 </div>
-                <div className='hidden md:flex lg:flex xl:flex items-center gap-3'>
+                <div className='flex items-center gap-3'>
                     <DarkModeToggle />
                     {links.map((link) => (
                         <NavLink key={link.id} href={link.url} >
@@ -54,12 +59,9 @@ const NavBar = () => {
                         <CartModel />
                     </div>
                 </div>
-                <div className='flex items-center gap-5 md:hidden lg:hidden xl:hidden'>
-                    <CartModel />
-                    <Sidebar />
-                </div>
+
             </div>
-        </header>
+        </nav>
     );
 };
 

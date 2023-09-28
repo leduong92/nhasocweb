@@ -25,7 +25,7 @@ const Footer = async () => {
                         <ul className='flex flex-col gap-3 pt-3'>
                             {categories.map((itm) => (
                                 <li key={itm.id}>
-                                    <Link href={`/products/category/${itm.id}`}>{itm.displayName}</Link>
+                                    <Link href={`/search/${itm.urlCode}`}>{itm.displayName}</Link>
                                 </li>
                             ))}
                         </ul>

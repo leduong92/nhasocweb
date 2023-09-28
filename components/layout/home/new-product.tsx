@@ -1,9 +1,10 @@
-import { IProduct } from '@/util/constant'
+import { IProduct, IProductImage } from '@/util/constant'
 import React from 'react'
 import Link from 'next/link'
 import GridTileImage from '../../product/grid/tile'
+import { dynamicBlurUrl } from '@/util/dynamicBlurUrl';
 
-function ThreeItemGridItem({
+async function ThreeItemGridItem({
     item,
     size,
     priority
@@ -12,9 +13,18 @@ function ThreeItemGridItem({
     size: 'full' | 'half';
     priority?: boolean;
 }) {
+
+    const images = item.productImages.map(async (img) => ({
+        ...img, blurHash: await dynamicBlurUrl(`${process.env.BASE_IMAGE_URL}${img.url}`)
+    }));
+
+    const photos: IProductImage[] = await Promise.all(images);
+
+    const blurUrl = photos.find(x => x.isDefault == true)?.blurHash;
+
     return (
         <div
-            className={size === 'full' ? 'md:col-span-4 md:row-span-2' : 'md:col-span-2 md:row-span-1'}
+            className={size === 'full' ? 'container md:col-span-4 md:row-span-2' : 'container md:col-span-2 md:row-span-1'}
         >
             <Link className="relative block aspect-square h-full w-full" href={`/product-detail/${item.id}`}>
                 <GridTileImage
@@ -31,6 +41,8 @@ function ThreeItemGridItem({
                         amount: item.originalPrice,
                         currencyCode: 'VND'
                     }}
+                    placeholder='blur'
+                    blurDataURL={blurUrl}
                 />
             </Link>
         </div>
@@ -47,6 +59,7 @@ const NewProduct = ({ products }: { products: IProduct[] }) => {
             <ThreeItemGridItem size="full" item={products[5]} priority={true} />
             <ThreeItemGridItem size="half" item={products[3]} priority={true} />
             <ThreeItemGridItem size="half" item={products[4]} priority={true} />
+
         </section>
     )
 }

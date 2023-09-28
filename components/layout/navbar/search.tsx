@@ -47,7 +47,7 @@ export default function Search() {
       <input
         type="text"
         name="search"
-        placeholder="Từ khoá..."
+        placeholder="Tìm kiếm..."
         autoComplete="off"
         onChange={(e) => setInput(e.target.value)}
         defaultValue={searchParams?.get('q') || ''}

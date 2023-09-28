@@ -1,4 +1,4 @@
-import { ICategory, SortFilterItem } from '@/util/constant'
+import { SortFilterItem } from '@/util/constant'
 import React from 'react'
 import FilterItemDropdown from './dropdown';
 import FilterItem from './item';

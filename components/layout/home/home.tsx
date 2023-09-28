@@ -25,15 +25,16 @@ const HomePage = async () => {
 
     const [featureds, newProducts] = await Promise.all([featuredDatas, newProductDatas]);
 
+
+    // const images = products[0].productImages.map(async (img) => ({
+    //     ...img, blurHash: await dynamicBlurUrl(`${process.env.BASE_IMAGE_URL}${img.url}`)
+    // }));
+
     return (
         <div >
-
             <Slider />
-
             <Featured products={featureds} />
-
             <NewProduct products={newProducts} />
-
             <NewsLetter />
         </div>
     )

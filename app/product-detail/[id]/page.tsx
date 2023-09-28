@@ -81,7 +81,7 @@ const Page = async ({ params: { id } }: Props) => {
 
     return (
         <>
-            <BreadCrumb router={`Products`} name={`${product.displayName}`} id={`${product.id}`} />
+            <BreadCrumb router={`Search`} name={`${product.displayName}`} id={`${product.id}`} />
 
             <div className='container mx-auto max-w-screen-2xl py-4'>
                 <div className='flex flex-col p-8 md:p-12 lg:flex-row lg:gap-8'>

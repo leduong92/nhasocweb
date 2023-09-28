@@ -10,7 +10,7 @@ async function getCategories() {
 
 async function CollectionList() {
     const categories = await getCategories();
-    return <FilterList list={categories} title="Categories" />;
+    return <FilterList list={categories} title="Các sản phẩm" />;
 }
 
 const skeleton = 'mb-3 h-4 w-5/6 animate-pulse rounded';

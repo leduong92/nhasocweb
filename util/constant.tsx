@@ -26,6 +26,7 @@ export interface IProductImage {
     isDefault: boolean,
     sortOrder: number,
     fileSize: number,
+    blurHash: string
 }
 
 export interface IProductPaging {

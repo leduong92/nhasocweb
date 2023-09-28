@@ -24,12 +24,10 @@ const FilterItemDropdown = ({ list }: { list: ListItem[] }) => {
 
     useEffect(() => {
         list.forEach((listItem: ListItem) => {
-            if (('urlCode' in listItem && pathname === '/search/category/' + listItem.id)) {
+            if ('urlCode' in listItem && pathname === '/search/' + listItem.urlCode) {
                 setActive(listItem.name);
             } else {
-                if (
-                    ('slug' in listItem && searchParams.get('sort') === listItem.slug)
-                ) {
+                if ('slug' in listItem && searchParams.get('sort') === listItem.slug) {
                     setActive(listItem.title);
                 }
             }

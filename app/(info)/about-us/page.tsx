@@ -57,7 +57,7 @@ const Page = () => {
                 <div className='flex flex-col p-5 gap-3'>
                     <div>
                         <span className='font-bold'>Tài khoản: </span>
-                        <span className='uppercase '>Nguyễn Thị Hải Yến</span>
+                        <span className='uppercase '>Nhà Sóc Store</span>
                     </div>
                     <div>
                         <span className='font-bold'>Ngân hàng: </span>
