@@ -1,5 +1,5 @@
 "use client"
-import { cn } from "@/util"
+import { cn } from "@/lib/utils"
 import * as React from "react"
 
 
