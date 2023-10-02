@@ -26,7 +26,7 @@ const GotoTop = () => {
 
     return (
         <>
-            {isVisible && (
+            {isVisible ? (
                 <div className='flex items-center rounded-md'>
                     <button onClick={handleScrollTop}
                         className='fixed rounded-md bottom-24 right-5 h-12 w-8 text-center cursor-pointer bg-sky-200 hover:bg-sky-400'
@@ -36,7 +36,7 @@ const GotoTop = () => {
                         </svg>
                     </button>
                 </div>
-            )}
+            ) : null}
         </>
     )
 }

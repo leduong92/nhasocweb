@@ -1,6 +1,7 @@
-import clsx from 'clsx'
+
 import React from 'react'
 import Price from './price'
+import clsx from 'clsx'
 
 type LabelProps = {
     title?: string,

@@ -4,7 +4,7 @@ import Grid from '@/components/product/grid';
 import ProductGridItems from '@/components/product/grid/product-grid-items';
 import { getProducts } from '@/lib';
 import { defaultSort, sorting } from '@/util/constant';
-import React from 'react'
+import React, { Suspense } from 'react'
 
 export const metadata = {
     title: 'Nhà Sóc Store | Search',
@@ -20,7 +20,7 @@ const SearchPage = async ({ searchParams }: { searchParams?: { [key: string]: st
     const resultsText = products.results.length > 1 ? 'results' : 'result';
 
     return (
-        <>
+        <Suspense>
             {searchValue ? (
                 <p className="mb-4">
                     {products.results.length === 0
@@ -42,7 +42,7 @@ const SearchPage = async ({ searchParams }: { searchParams?: { [key: string]: st
                 itemsPerPage={products.pageSize}
             /> : null}
 
-        </>
+        </Suspense>
     )
 }
 
