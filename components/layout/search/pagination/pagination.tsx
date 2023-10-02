@@ -15,9 +15,11 @@ const Pagination = ({ totalItems, currentPage, itemsPerPage = 6 }: PaginationPro
     const pages = usePagination(totalItems, currentPage, itemsPerPage)
 
     return (
-        <div>
-            <Paginated pages={pages} />
-        </div>
+        <Suspense>
+            <div>
+                <Paginated pages={pages} />
+            </div>
+        </Suspense>
     )
 }
 

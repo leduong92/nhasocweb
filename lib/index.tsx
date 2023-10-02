@@ -62,7 +62,7 @@ export async function getProducts({ query, reverse, sortKey, pageIndex, pageSize
             'sortKey': sortKey,
             'pageIndex': pageIndex ? pageIndex : 1,
             'pageSize': pageSize ? pageSize : 6
-        }),
+        })
     });
     return res.json();
 }

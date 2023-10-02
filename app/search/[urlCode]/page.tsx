@@ -1,11 +1,14 @@
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { defaultSort, sorting } from '@/util/constant';
 import Grid from '@/components/product/grid';
 import ProductGridItems from '@/components/product/grid/product-grid-items';
 import ResultCount from '@/components/layout/search/filter/result-cout';
 import Pagination from '@/components/layout/search/pagination/pagination';
 import { getCollectionProducts } from '@/lib';
+
+
+export const runtime = 'edge';
 
 export default async function CategoryPage({
     params,
@@ -20,22 +23,24 @@ export default async function CategoryPage({
     const products = await getCollectionProducts({ category: params.urlCode, sortKey, reverse });
 
     return (
-        <section>
-            <ResultCount products={products} />
+        <Suspense>
+            <section>
+                <ResultCount products={products} />
 
-            {products.results.length === 0 ? (
-                <p className="py-3 text-lg">{`No products found in this collection`}</p>
-            ) : (
-                <Grid className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-                    <ProductGridItems products={products.results} />
-                </Grid>
-            )}
+                {products.results.length === 0 ? (
+                    <p className="py-3 text-lg">{`No products found in this collection`}</p>
+                ) : (
+                    <Grid className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                        <ProductGridItems products={products.results} />
+                    </Grid>
+                )}
 
-            {products.numberOfPage > 1 ? <Pagination
-                totalItems={products.totalCount}
-                currentPage={products.pageIndex}
-                itemsPerPage={products.pageSize}
-            /> : null}
-        </section>
+                {products.numberOfPage > 1 ? <Pagination
+                    totalItems={products.totalCount}
+                    currentPage={products.pageIndex}
+                    itemsPerPage={products.pageSize}
+                /> : null}
+            </section>
+        </Suspense>
     );
 }

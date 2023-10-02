@@ -6,6 +6,8 @@ import { getProducts } from '@/lib';
 import { defaultSort, sorting } from '@/util/constant';
 import React, { Suspense } from 'react'
 
+export const runtime = 'edge';
+
 export const metadata = {
     title: 'Nhà Sóc Store | Search',
     description: 'Search for products in the store.'
