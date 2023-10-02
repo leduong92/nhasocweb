@@ -8,8 +8,6 @@ const nextConfig = {
         //BASE_URL: 'http://api.nhasoc.io.vn/api',
         BASE_URL: 'http://localhost:5000/api',
         BASE_IMAGE_URL: 'http://localhost:5000',
-        NEXT_PUBLIC_URL: 'https://nhasoc.io.vn',
-        SITE_NAME: 'Nhà Sóc Store',
     },
 };
 

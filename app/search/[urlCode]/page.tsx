@@ -5,10 +5,7 @@ import Grid from '@/components/product/grid';
 import ProductGridItems from '@/components/product/grid/product-grid-items';
 import ResultCount from '@/components/layout/search/filter/result-cout';
 import Pagination from '@/components/layout/search/pagination/pagination';
-import { getCategories, getCollectionProducts } from '@/lib';
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-
+import { getCollectionProducts } from '@/lib';
 
 export default async function CategoryPage({
     params,

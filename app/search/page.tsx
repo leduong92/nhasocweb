@@ -6,12 +6,10 @@ import { getProducts } from '@/lib';
 import { defaultSort, sorting } from '@/util/constant';
 import React from 'react'
 
-
 export const metadata = {
     title: 'Nhà Sóc Store | Search',
     description: 'Search for products in the store.'
 };
-
 
 const SearchPage = async ({ searchParams }: { searchParams?: { [key: string]: string | string[] | undefined } }) => {
 
