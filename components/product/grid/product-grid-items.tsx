@@ -2,14 +2,14 @@
 import Link from 'next/link';
 import Grid from '.';
 import GridTileImage from './tile';
-import { IProduct } from '@/util/constant';
+import { IProduct } from '@/lib/model';
 
 export default function ProductGridItems({ products }: { products: IProduct[] }) {
     return (
         <>
             {products.map((product) => (
                 <Grid.Item key={product.id} className="animate-fadeIn">
-                    <Link className="relative inline-block h-full w-full" href={`/product-detail/${product.id}`}>
+                    <Link href={`/product/${product.id}`} className="relative inline-block h-full w-full" >
                         <GridTileImage
                             alt={product.displayName}
                             label={{

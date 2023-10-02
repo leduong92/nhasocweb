@@ -1,8 +1,9 @@
-import Collections from '@/components/layout/search/filter/collections'
+
 import FilterList from '@/components/layout/search/filter'
 import { sorting } from '@/util/constant'
 import React, { Suspense } from 'react'
 import BreadCrumb from '@/components/layout/bread-crumb'
+import Categories from '@/components/layout/search/filter/categories'
 
 const SearchLayout = ({ children }: { children: React.ReactNode }) => {
     return (
@@ -12,7 +13,7 @@ const SearchLayout = ({ children }: { children: React.ReactNode }) => {
             <div className='container'>
                 <div className="mx-auto flex max-w-screen-2xl flex-col gap-8  text-black dark:text-white md:flex-row py-3">
                     <div className="order-first w-full flex-none md:max-w-[135px]">
-                        <Collections />
+                        <Categories />
                     </div>
                     <div className="order-last min-h-screen w-full md:order-none">{children}</div>
                     <div className="order-none flex-none md:order-last md:w-[135px]">

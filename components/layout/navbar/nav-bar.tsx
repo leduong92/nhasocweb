@@ -6,36 +6,12 @@ import CartModel from '../../orders/basket/basket-model';
 import LogoLink from './logo-link';
 import Search from './search';
 import MobileMenu from './mobile-menu';
-
-const links = [
-    {
-        id: 1,
-        title: "Home",
-        url: "/",
-    },
-    {
-        id: 2,
-        title: "Sản phẩm",
-        url: "/search",
-    },
-    {
-        id: 3,
-        title: "Blog",
-        url: "/blog",
-    },
-    {
-        id: 4,
-        title: "About",
-        url: "/about-us",
-    },
-    {
-        id: 5,
-        title: "Contact",
-        url: "/contact-us",
-    },
-];
+import { Navlinks } from '@/lib';
 
 const NavBar = () => {
+
+    const links = Navlinks;
+
     return (
         <nav className="py-2 border-b fixed top-0 z-40  bg-background w-screen">
             <div className="block flex-none md:hidden">

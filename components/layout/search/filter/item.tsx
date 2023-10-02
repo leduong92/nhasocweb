@@ -3,9 +3,9 @@ import React from 'react'
 import { ListItem, PathFilterItem } from '.'
 import { usePathname, useSearchParams } from 'next/navigation'
 import Link from 'next/link';
-import { createUrl } from '@/lib/utils';
 import clsx from 'clsx';
 import { SortFilterItem, urlParameters } from '@/util/constant';
+import { createUrl } from '@/util';
 
 
 function PathFilterItem({ item }: { item: PathFilterItem }) {

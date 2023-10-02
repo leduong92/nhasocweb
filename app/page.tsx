@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     keywords: ['Nhà Sóc, Mác Ca, Macca, Hạt điều, Granola, Hạnh nhân, dinh dưỡng'],
     colorScheme: 'light',
     creator: 'jamejohson',
-
+    themeColor: 'light',
     robots: {
         index: true,
         follow: true,

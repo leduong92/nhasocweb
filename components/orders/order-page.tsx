@@ -1,14 +1,13 @@
 "use client"
 import { useStore } from '@/hooks/useStore';
-import { IBasket } from '@/util/constant';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
 import { Button } from '../ui/button';
-import { formatCurrency } from '@/util/formatCurrency';
 import BasketItem from './basket/basket-item';
+import { IBasket } from '@/lib/model';
 
 const OrderPage = () => {
     const { state, dispatch } = useStore();
@@ -67,7 +66,7 @@ const OrderPage = () => {
         <>
             <div className='flex flex-col gap-2 rounded-md '>
                 <div className="grid gap-2">
-                    <BasketItem />
+                    <BasketItem isShowbutton={false} />
                 </div>
 
             </div>

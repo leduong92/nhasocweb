@@ -9,9 +9,18 @@ import { Approvider } from "@/store/globalState";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const baseUrl = process.env.NEXT_PUBLIC_URL
+    ? `${process.env.NEXT_PUBLIC_URL}`
+    : 'http://localhost:3000';
+
 export const metadata: Metadata = {
+    metadataBase: new URL(baseUrl),
     title: "Nhà Sóc Store | Official Website",
     description: "Nhà Sóc Store chuyên cung cấp các loại hạt dinh dưỡng, Hạt Mác ca, Macca, Hạt điều, Hạnh nhân, Granola, óc chó đỏ, óc chó vàng và các sản phẩm khác từ tây nguyên.",
+    robots: {
+        follow: true,
+        index: true
+    },
 };
 
 export default function RootLayout({

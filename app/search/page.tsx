@@ -2,31 +2,17 @@ import ResultCount from '@/components/layout/search/filter/result-cout';
 import Pagination from '@/components/layout/search/pagination/pagination';
 import Grid from '@/components/product/grid';
 import ProductGridItems from '@/components/product/grid/product-grid-items';
-import { IProductPaging, defaultSort, sorting } from '@/util/constant';
+import { getProducts } from '@/lib';
+import { defaultSort, sorting } from '@/util/constant';
 import React from 'react'
 
-type GetProductProps = {
-    query?: string,
-    reverse?: boolean,
-    sortKey?: string,
-    pageIndex: string
-}
+export const runtime = 'edge';
 
-async function getProducts({ query, reverse, sortKey, pageIndex }: GetProductProps): Promise<IProductPaging> {
-    let res = await fetch(`${process.env.BASE_URL}/Product/search`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            'category': query,
-            'reverse': reverse,
-            'sortKey': sortKey,
-            'pageIndex': pageIndex
-        }),
-    });
-    return res.json();
-}
+export const metadata = {
+    title: 'Nhà Sóc Store | Search',
+    description: 'Search for products in the store.'
+};
+
 
 const SearchPage = async ({ searchParams }: { searchParams?: { [key: string]: string | string[] | undefined } }) => {
 

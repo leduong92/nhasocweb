@@ -1,4 +1,5 @@
-import { IProduct, IProductPaging } from '@/util/constant'
+
+import { IProductPaging } from '@/lib/model'
 import React from 'react'
 
 const ResultCount = ({ products }: { products: IProductPaging }) => {

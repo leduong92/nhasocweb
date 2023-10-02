@@ -26,7 +26,7 @@ const CartModel = () => {
             <SheetContent className="w-[400px] sm:w-[540px]  bg-black/30">
                 <div className="fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-neutral-200 bg-white/80 p-6 text-black backdrop-blur-xl dark:border-neutral-700 dark:bg-black/80 dark:text-white md:w-[390px]">
                     <SheetHeader>
-                        <SheetTitle><h4 className="font-medium leading-none text-gray-500">Giỏ hàng của bạn</h4></SheetTitle>
+                        <SheetTitle><span className="font-medium leading-none text-gray-500">Giỏ hàng của bạn</span></SheetTitle>
                     </SheetHeader>
 
                     {state.basket.items.length == 0 ? (
@@ -35,7 +35,7 @@ const CartModel = () => {
                             <p className="mt-6 text-center text-2xl font-bold">Chưa có sản phẩm.</p>
                         </div>
                     ) : (
-                        <BasketItem />
+                        <BasketItem isShowbutton={true} />
                     )}
                 </div>
             </SheetContent>

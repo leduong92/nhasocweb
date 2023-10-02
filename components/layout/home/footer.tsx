@@ -1,16 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
 import LogoLink from '../navbar/logo-link';
-import { ICategory } from '@/util/constant';
-
-async function getCategories() {
-    let res = await fetch(`${process.env.BASE_URL}/Category`);
-    return res.json();
-}
+import { getCategories } from '@/lib';
 
 const Footer = async () => {
 
-    const categories: ICategory[] = await getCategories();
+    const categories = await getCategories();
 
     return (
         <div className="border-t mt-2 top-[70px] md:top-[85px] lg:top-[90px] xl:top-[100px] relative">
@@ -33,10 +28,10 @@ const Footer = async () => {
                     <div>
                         <h1 className='text-xl font-bold'>Chính sách</h1>
                         <ul className='flex flex-col gap-3 pt-3'>
-                            <Link href={`/about-us`}>Thông tin</Link>
-                            <Link href={`/term-of-service`}>Điều khoản dịch vụ</Link>
-                            <Link href={`/refund`}>Chính sách hoàn tiền</Link>
-                            <Link href={`/shipping-policy`}>Chính sách giao hàng</Link>
+                            <li><Link href={`/about-us`}>Thông tin</Link></li>
+                            <li><Link href={`/term-of-service`}>Điều khoản dịch vụ</Link></li>
+                            <li><Link href={`/refund`}>Chính sách hoàn tiền</Link></li>
+                            <li><Link href={`/shipping-policy`}>Chính sách giao hàng</Link></li>
                         </ul>
                     </div>
                     <div>

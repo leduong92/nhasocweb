@@ -1,8 +1,9 @@
-import { IProduct, IProductImage } from '@/util/constant'
+
 import React from 'react'
 import Link from 'next/link'
 import GridTileImage from '../../product/grid/tile'
-import { dynamicBlurUrl } from '@/util/dynamicBlurUrl';
+import { dynamicBlurUrl } from '@/util';
+import { IProduct, IProductImage } from '@/lib/model';
 
 async function ThreeItemGridItem({
     item,
@@ -24,14 +25,14 @@ async function ThreeItemGridItem({
 
     return (
         <div
-            className={size === 'full' ? 'container md:col-span-4 md:row-span-2' : 'container md:col-span-2 md:row-span-1'}
+            className={size === 'full' ? 'aspect-square py-2' : 'aspect-video py-2'}
         >
-            <Link className="relative block aspect-square h-full w-full" href={`/product-detail/${item.id}`}>
+            <Link href={`/product/${item.id}`} className="relative block h-full w-full">
                 <GridTileImage
                     src={`${process.env.BASE_IMAGE_URL}${item.productImages.find(x => x.isDefault === true)?.url}`}
                     fill
                     sizes={
-                        size === 'full' ? '(min-width: 768px) 66vw, 100vw' : '(min-width: 768px) 33vw, 100vw'
+                        size === 'full' ? '(min-width: 768px) 66vw, 100vw' : ' (min-width: 768px) 33vw, 100vw'
                     }
                     priority={priority}
                     alt={item.metaTitle}
@@ -51,14 +52,24 @@ async function ThreeItemGridItem({
 
 const NewProduct = ({ products }: { products: IProduct[] }) => {
     return (
-        <section className="mx-auto grid max-w-screen-2xl gap-5 px-4 pb-4 md:grid-cols-6 md:grid-rows-2">
+        // <section className="container mx-auto grid gap-5 px-4  pb-4 md:grid-cols-6 md:grid-rows-2">
+        //     <ThreeItemGridItem size="full" item={products[0]} priority={true} />
+        //     <ThreeItemGridItem size="half" item={products[1]} priority={true} />
+        //     <ThreeItemGridItem size="half" item={products[2]} />
+
+        //     <ThreeItemGridItem size="full" item={products[5]} priority={true} />
+        //     <ThreeItemGridItem size="half" item={products[3]} priority={true} />
+        //     <ThreeItemGridItem size="half" item={products[4]} priority={true} />
+
+        // </section>
+        <section className="container gap-8 columns-3">
             <ThreeItemGridItem size="full" item={products[0]} priority={true} />
             <ThreeItemGridItem size="half" item={products[1]} priority={true} />
             <ThreeItemGridItem size="half" item={products[2]} />
 
+            <ThreeItemGridItem size="full" item={products[4]} priority={true} />
             <ThreeItemGridItem size="full" item={products[5]} priority={true} />
             <ThreeItemGridItem size="half" item={products[3]} priority={true} />
-            <ThreeItemGridItem size="half" item={products[4]} priority={true} />
 
         </section>
     )

@@ -1,6 +1,6 @@
 "use client"
 
-import { createUrl } from "@/lib/utils";
+import { createUrl } from "@/util";
 import { urlParameters } from "@/util/constant";
 import clsx from "clsx";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";

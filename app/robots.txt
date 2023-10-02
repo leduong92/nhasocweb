@@ -1,8 +1,0 @@
-Sitemap: https://nhasoc.io.vn/sitemap.xml
-# Block all crawlers for /accounts
-# User-agent: *
-# Disallow: /accounts
-
-# Allow all crawlers
-User-agent: *
-Allow: /

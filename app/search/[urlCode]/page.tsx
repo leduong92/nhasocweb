@@ -1,38 +1,16 @@
 
 import React from 'react';
-import { IProductPaging, defaultSort, sorting } from '@/util/constant';
+import { defaultSort, sorting } from '@/util/constant';
 import Grid from '@/components/product/grid';
 import ProductGridItems from '@/components/product/grid/product-grid-items';
 import ResultCount from '@/components/layout/search/filter/result-cout';
 import Pagination from '@/components/layout/search/pagination/pagination';
+import { getCategories, getCollectionProducts } from '@/lib';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
-type GetProductProps = {
-    category?: string,
-    reverse?: boolean,
-    sortKey?: string
-}
-export const revalidate = 0
+export const runtime = 'edge';
 
-
-async function getCollectionProducts({ category, reverse, sortKey }: GetProductProps): Promise<IProductPaging> {
-
-    let res = await fetch(`${process.env.BASE_URL}/Product/search`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            'category': category,
-            'reverse': reverse,
-            'sortKey': sortKey
-        }),
-        next: {
-            revalidate: 0
-        }
-    });
-
-    return res.json();
-}
 
 export default async function CategoryPage({
     params,
@@ -48,7 +26,6 @@ export default async function CategoryPage({
 
     return (
         <section>
-
             <ResultCount products={products} />
 
             {products.results.length === 0 ? (

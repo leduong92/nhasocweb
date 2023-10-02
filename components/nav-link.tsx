@@ -12,7 +12,7 @@ const NavLink = ({ href, children }: NavLinkProps) => {
   let segment = useSelectedLayoutSegment();
   let active = href === `/${segment}`;
   return (
-    <Link className={active ? "underline underline-offset-4" : "hover:underline underline-offset-4"} href={href}>
+    <Link href={href} className={active ? "underline underline-offset-4" : "hover:underline underline-offset-4"}>
       {children}
     </Link>
   );

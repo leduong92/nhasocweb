@@ -1,6 +1,5 @@
 'use client';
-
-import { createUrl } from '@/lib/utils';
+import { createUrl } from '@/util';
 import { urlParameters } from '@/util/constant';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 

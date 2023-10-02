@@ -1,4 +1,4 @@
-import { IBasket, IBasketItem, IProduct } from "@/util/constant"
+import { IBasket, IBasketItem, IProduct } from "@/lib/model";
 
 export type StateType = {
     basket: IBasket,
