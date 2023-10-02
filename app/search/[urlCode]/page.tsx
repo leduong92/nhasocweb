@@ -8,7 +8,7 @@ import Pagination from '@/components/layout/search/pagination/pagination';
 import { getCollectionProducts } from '@/lib';
 
 
-// export const runtime = 'edge';
+export const runtime = 'edge';
 
 export default async function CategoryPage({
     params,
