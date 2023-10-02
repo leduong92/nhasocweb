@@ -12,13 +12,7 @@ const Slider = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const router = useRouter();
 
-    const images = [
-        { imgUrl: "/ma_2.jpg", base64: "", title: "Hạt Macca", url: '/search/hat-macca', description: "Hạt Macca là hạt giống của cây macadamia, có nguồn gốc từ Úc và được trồng ở nhiều nơi trên thế giới, chằng hạn như Brazil, Costa Rica, Hawaii, New Zealand, trong đó có Việt Nam..." },
-        { imgUrl: "/m_1.jpg", base64: "", title: "Granola", url: '/search/granola', description: "Granola là món ăn quen thuộc của người Mỹ vào buổi sáng, đây là hỗn hợp của nhiều thực phẩm lành lạnh với hàm lượng chất dinh dưỡng cao, nhất là giàu protein." },
-        { imgUrl: "/h_4.jpg", base64: "", title: "Hạnh Nhân", url: '/search/hanhnhan', description: "Hạnh nhân là một trong những loại hạt phổ biến trên thế giới. Thành phần dinh dưỡng của hạnh nhân giàu chất béo lành mạnh, chất chống oxy hóa, vitamin và khoáng chất." },
-        { imgUrl: "/o_1.jpg", base64: "", title: "Quả Óc Chó", url: '/search/hat-oc-cho', description: "Quả óc chó có nguồn gốc ở khu vực Địa Trung Hải và Trung Á. Óc chó giàu chất béo omega-3 và chứa lượng chất chống oxy hóa cao hơn hầu hết các loại thực phẩm khác." },
-        { imgUrl: "/h_1.jpg", base64: "", title: "Mix Hạt Dinh Dưỡng", url: '/search/mix-hat', description: "Mixed nuts là trộn hỗn hợp các loại hạt dinh dưỡng với nhau tạo thành 1 sản phẩm đa dạng hạt, việc mix các loại hạt dinh dưỡng giúp bạn đa dạng được các loại hạt bổ sung trong thực đơn hàng ngày." },
-    ];
+    const images = [...imagesSlider];
 
     const prevSlide = () => {
         setCurrentSlide(currentSlide === 0 ? 4 : (prev) => prev - 1);

@@ -47,9 +47,10 @@ type GetProductProps = {
     query?: string,
     reverse?: boolean,
     sortKey?: string,
-    pageIndex: string
+    pageIndex?: string,
+    pageSize?: string,
 }
-export async function getProducts({ query, reverse, sortKey, pageIndex }: GetProductProps): Promise<IProductPaging> {
+export async function getProducts({ query, reverse, sortKey, pageIndex, pageSize }: GetProductProps): Promise<IProductPaging> {
     let res = await fetch(`${process.env.BASE_URL}/Product/search`, {
         method: 'POST',
         headers: {
@@ -59,7 +60,8 @@ export async function getProducts({ query, reverse, sortKey, pageIndex }: GetPro
             'category': query,
             'reverse': reverse,
             'sortKey': sortKey,
-            'pageIndex': pageIndex
+            'pageIndex': pageIndex ? pageIndex : 1,
+            'pageSize': pageSize ? pageSize : 6
         }),
     });
     return res.json();
