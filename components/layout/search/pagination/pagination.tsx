@@ -1,7 +1,7 @@
 
 import usePagination from '@/hooks/usePagination';
 import { dotts } from '@/util/constant';
-import React from 'react';
+import React, { Suspense } from 'react';
 import PaginatedPage from './paginated';
 
 export type PaginationProps = {
@@ -33,7 +33,9 @@ function Paginated({ pages }: { pages: any[] }) {
                         {pageNumber}
                     </span>
                 ) : (
-                    <PaginatedPage key={i} pageNumber={pageNumber} />
+                    <Suspense key={i}>
+                        <PaginatedPage pageNumber={pageNumber} />
+                    </Suspense>
                 )
             )}
         </div>
