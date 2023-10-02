@@ -12,7 +12,7 @@ const Slider = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const router = useRouter();
 
-    const images = imagesSlider;
+    const images = [...imagesSlider];
 
     const prevSlide = () => {
         setCurrentSlide(currentSlide === 0 ? 4 : (prev) => prev - 1);

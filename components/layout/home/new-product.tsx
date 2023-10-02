@@ -15,13 +15,13 @@ async function ThreeItemGridItem({
     priority?: boolean;
 }) {
 
-    const images = item.productImages.map(async (img) => ({
-        ...img, blurHash: await dynamicBlurUrl(`${process.env.BASE_IMAGE_URL}${img.url}`)
-    }));
+    // const images = item.productImages.map(async (img) => ({
+    //     ...img, blurHash: await dynamicBlurUrl(`${process.env.BASE_IMAGE_URL}${img.url}`)
+    // }));
 
-    const photos: IProductImage[] = await Promise.all(images);
+    // const photos: IProductImage[] = await Promise.all(images);
 
-    const blurUrl = photos.find(x => x.isDefault == true)?.blurHash;
+    // const blurUrl = photos.find(x => x.isDefault == true)?.blurHash;
 
     return (
         <div
@@ -42,8 +42,8 @@ async function ThreeItemGridItem({
                         amount: item.originalPrice,
                         currencyCode: 'VND'
                     }}
-                    placeholder='blur'
-                    blurDataURL={blurUrl}
+                // placeholder='blur'
+                // blurDataURL={blurUrl}
                 />
             </Link>
         </div>
