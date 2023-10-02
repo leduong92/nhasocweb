@@ -1,3 +1,4 @@
+"use client"
 import { cn } from "@/util"
 import * as React from "react"
 
