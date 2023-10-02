@@ -7,7 +7,7 @@ export default function robots() {
         userAgent: '*'
       }
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl
+    sitemap: 'https://nhasoc.io.vn/sitemap.xml',
+    host: 'https://nhasoc.io.vn'
   };
 }

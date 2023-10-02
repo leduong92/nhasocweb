@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
     const previousImages = (await parent).openGraph?.images || []
 
     return {
-        metadataBase: new URL(`${baseUrl}`),
+        metadataBase: new URL(`https://nhasoc.io.vn`),
         alternates: {
             canonical: `${baseUrl}/product/${id}`,
             languages: {
