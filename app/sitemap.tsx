@@ -6,10 +6,7 @@ type Route = {
     lastModified: string;
 };
 
-const baseUrl = process.env.NEXT_PUBLIC_URL
-    ? `${process.env.NEXT_PUBLIC_URL}`
-    : 'http://localhost:3000';
-
+const baseUrl = process.env.NEXT_PUBLIC_URL;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 

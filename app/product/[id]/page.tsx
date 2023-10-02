@@ -10,11 +10,9 @@ import { getProduct } from '@/lib';
 import { IProduct } from '@/lib/model';
 import { formatCurrency } from '@/util';
 
-
 const { SITE_NAME } = process.env;
-const baseUrl = process.env.NEXT_PUBLIC_URL
-    ? `${process.env.NEXT_PUBLIC_URL}`
-    : 'http://localhost:3000';
+
+const baseUrl = process.env.NEXT_PUBLIC_URL;
 
 type Props = {
     params: {
