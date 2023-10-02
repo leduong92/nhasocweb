@@ -12,7 +12,7 @@ export const metadata: Metadata = {
         }
     },
     applicationName: 'Nhà Sóc Store',
-    authors: [{ name: 'jame' }, { name: 'johson', url: 'https://nhasoc.com' }],
+    authors: [{ name: 'jame' }, { name: 'johson', url: 'https://nhasoc.io.vn' }],
     keywords: ['Nhà Sóc, Mác Ca, Macca, Hạt điều, Granola, Hạnh nhân, dinh dưỡng'],
     colorScheme: 'light',
     creator: 'jamejohson',

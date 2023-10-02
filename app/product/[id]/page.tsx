@@ -30,23 +30,23 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
     return {
         metadataBase: new URL(`https://nhasoc.io.vn`),
         alternates: {
-            canonical: `${baseUrl}/product/${id}`,
+            canonical: `https://nhasoc.io.vn/product/${id}`,
             languages: {
                 'vi': '/vi'
             }
         },
-        title: `${SITE_NAME} | ` + product.metaTitle,
+        title: `Nhà Sóc Store | ` + product.metaTitle,
         description: product.metaDescription,
-        applicationName: `${SITE_NAME}`,
-        authors: [{ name: 'jame' }, { name: 'johson', url: `${baseUrl}` }],
+        applicationName: `Nhà Sóc Store`,
+        authors: [{ name: 'jame' }, { name: 'johson', url: 'https://nhasoc.io.vn' }],
         keywords: product.metaKeyword,
         colorScheme: 'light',
         creator: 'jamejohson',
         openGraph: {
-            title: `${SITE_NAME} | ` + product.metaTitle,
+            title: `Nhà Sóc Store | ` + product.metaTitle,
             description: product.metaDescription,
-            url: `${baseUrl}`,
-            siteName: `${SITE_NAME} | Official Website`,
+            url: `https://nhasoc.io.vn`,
+            siteName: `Nhà Sóc Store | Official Website`,
             images: [`${product.productImages.find(x => x.isDefault === true)?.url}`, ...previousImages],
             type: 'website',
 
