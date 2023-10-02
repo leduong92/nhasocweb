@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import DarkModeToggle from '../DarkModeToggle';
 import Sidebar from './side-bar';
 import NavLink from '../../nav-link';
@@ -21,9 +21,11 @@ const NavBar = () => {
             <div className='hidden container md:flex items-center justify-between'>
 
                 <LogoLink />
-                <div>
-                    <Search />
-                </div>
+                <Suspense>
+                    <div>
+                        <Search />
+                    </div>
+                </Suspense>
                 <div className='flex items-center gap-3'>
                     <DarkModeToggle />
                     {links.map((link) => (
