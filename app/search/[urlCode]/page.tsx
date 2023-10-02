@@ -9,8 +9,6 @@ import { getCategories, getCollectionProducts } from '@/lib';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-export const runtime = 'edge';
-
 
 export default async function CategoryPage({
     params,
