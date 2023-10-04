@@ -1,0 +1,27 @@
+{
+  "navigation": {
+    "home": "Trang chủ",
+    "product": "Sản phẩm",
+    "blog": "Blog",
+    "about": "Thông tin",
+    "contact": "Liên hệ",
+    "customize": "Tuỳ chỉnh"
+  },
+  "page": {
+    "home": {
+      "title": "Xin chào",
+      "description": "Internationalisierung im NextJs 13 App-Router",
+      "whyus": "Tại sao chọn chúng tôi?",
+      "refund": "Đổi trả",
+      "refunddesc": "Đổi trả hoặc hoàn tiền nếu sản phẩm hư hoặc không đúng như mô tả hình ảnh sản phẩm đăng",
+      "shipping": "Giao hàng",
+      "shippingdesc": "Giao hàng đảm bảo chất lượng ATVSTP, giao hàng nhanh và đóng gói cẩn thận chắc chắn",
+      "help": "Hỗ trợ",
+      "helpdesc": "Chăm sóc khách hàng nhiệt tình và giải quyết các vấn đề một cách nhanh chóng nhất."
+    },
+    "about": {
+      "title": "Über uns",
+      "description": "Dies ist die About-Seite"
+    }
+  }
+}

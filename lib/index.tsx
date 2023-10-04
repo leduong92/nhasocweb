@@ -1,5 +1,20 @@
 import { ICategory, IProduct, IProductPaging } from "./model";
 
+type SlideProps = {
+    imgUrl: string,
+    base64: string,
+    title: string,
+    url: string,
+    description: string,
+}
+export const imagesSlider: SlideProps[] = [
+    { imgUrl: "/ma_2.jpg", base64: "", title: "Hạt Macca", url: '/search/hat-macca', description: "Hạt Macca là hạt giống của cây macadamia, có nguồn gốc từ Úc và được trồng ở nhiều nơi trên thế giới, chằng hạn như Brazil, Costa Rica, Hawaii, New Zealand, trong đó có Việt Nam..." },
+    { imgUrl: "/m_1.jpg", base64: "", title: "Granola", url: '/search/granola', description: "Granola là món ăn quen thuộc của người Mỹ vào buổi sáng, đây là hỗn hợp của nhiều thực phẩm lành lạnh với hàm lượng chất dinh dưỡng cao, nhất là giàu protein." },
+    { imgUrl: "/h_4.jpg", base64: "", title: "Hạnh Nhân", url: '/search/hanhnhan', description: "Hạnh nhân là một trong những loại hạt phổ biến trên thế giới. Thành phần dinh dưỡng của hạnh nhân giàu chất béo lành mạnh, chất chống oxy hóa, vitamin và khoáng chất." },
+    { imgUrl: "/o_1.jpg", base64: "", title: "Quả Óc Chó", url: '/search/hat-oc-cho', description: "Quả óc chó có nguồn gốc ở khu vực Địa Trung Hải và Trung Á. Óc chó giàu chất béo omega-3 và chứa lượng chất chống oxy hóa cao hơn hầu hết các loại thực phẩm khác." },
+    { imgUrl: "/h_1.jpg", base64: "", title: "Mix Hạt Dinh Dưỡng", url: '/search/mix-hat', description: "Mixed nuts là trộn hỗn hợp các loại hạt dinh dưỡng với nhau tạo thành 1 sản phẩm đa dạng hạt, việc mix các loại hạt dinh dưỡng giúp bạn đa dạng được các loại hạt bổ sung trong thực đơn hàng ngày." },
+]
+
 export async function getCategories(): Promise<ICategory[]> {
     let res = await fetch(`${process.env.BASE_URL}/Category`);
     return res.json();
@@ -73,55 +88,49 @@ export async function getProduct(id: string) {
     return res.json()
 }
 
-type SlideProps = {
-    imgUrl: string,
-    base64: string,
+
+export type NavLinkProps = {
+    id: string,
     title: string,
     url: string,
-    description: string,
-}
-export const imagesSlider: SlideProps[] = [
-    { imgUrl: "/ma_2.jpg", base64: "", title: "Hạt Macca", url: '/search/hat-macca', description: "Hạt Macca là hạt giống của cây macadamia, có nguồn gốc từ Úc và được trồng ở nhiều nơi trên thế giới, chằng hạn như Brazil, Costa Rica, Hawaii, New Zealand, trong đó có Việt Nam..." },
-    { imgUrl: "/m_1.jpg", base64: "", title: "Granola", url: '/search/granola', description: "Granola là món ăn quen thuộc của người Mỹ vào buổi sáng, đây là hỗn hợp của nhiều thực phẩm lành lạnh với hàm lượng chất dinh dưỡng cao, nhất là giàu protein." },
-    { imgUrl: "/h_4.jpg", base64: "", title: "Hạnh Nhân", url: '/search/hanhnhan', description: "Hạnh nhân là một trong những loại hạt phổ biến trên thế giới. Thành phần dinh dưỡng của hạnh nhân giàu chất béo lành mạnh, chất chống oxy hóa, vitamin và khoáng chất." },
-    { imgUrl: "/o_1.jpg", base64: "", title: "Quả Óc Chó", url: '/search/hat-oc-cho', description: "Quả óc chó có nguồn gốc ở khu vực Địa Trung Hải và Trung Á. Óc chó giàu chất béo omega-3 và chứa lượng chất chống oxy hóa cao hơn hầu hết các loại thực phẩm khác." },
-    { imgUrl: "/h_1.jpg", base64: "", title: "Mix Hạt Dinh Dưỡng", url: '/search/mix-hat', description: "Mixed nuts là trộn hỗn hợp các loại hạt dinh dưỡng với nhau tạo thành 1 sản phẩm đa dạng hạt, việc mix các loại hạt dinh dưỡng giúp bạn đa dạng được các loại hạt bổ sung trong thực đơn hàng ngày." },
-]
-type NavLinkProps = {
-    id: number,
-    title: string,
-    url: string,
+    trans: string
 }
 export const Navlinks: NavLinkProps[] = [
     {
-        id: 1,
+        id: "1",
         title: "Home",
-        url: "/",
+        url: "",
+        trans: "home",
     },
     {
-        id: 2,
+        id: "2",
         title: "Sản phẩm",
-        url: "/search",
+        url: "search",
+        trans: "product",
     },
     {
-        id: 3,
+        id: "3",
         title: "Blog",
-        url: "/blog",
+        url: "blog",
+        trans: "blog",
     },
     {
-        id: 4,
+        id: "4",
         title: "About",
-        url: "/about-us",
+        url: "about-us",
+        trans: "about",
     },
     {
-        id: 5,
+        id: "5",
         title: "Contact",
-        url: "/contact-us",
+        url: "contact-us",
+        trans: "contact",
     },
     {
-        id: 6,
+        id: "6",
         title: "Customize",
-        url: "/customize",
+        url: "customize",
+        trans: "customize",
     },
 ];
 

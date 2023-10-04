@@ -1,0 +1,27 @@
+{
+  "navigation": {
+    "home": "首頁",
+    "product": "產品",
+    "blog": "部落格",
+    "about": "資訊",
+    "contact": "接觸",
+    "customize": "風俗"
+  },
+  "page": {
+    "home": {
+        "title": "你好",
+        "description": "NextJs 13 App-Router 的國際化",
+        "whyus": "為什麼選擇我們？",
+        "refund": "退款",
+        "refunddesc": "如果產品損壞或與發布的產品圖片描述不符，則退貨或退款",
+        "shipping": "幫助支持",
+        "shippingdesc": "出貨保證食品衛生安全質量，交貨快捷，包裝仔細堅固",
+        "help": "幫助支持",
+        "helpdesc": "熱情的客戶服務並儘快解決問題。"
+    },
+    "about": {
+      "title": "Über uns",
+      "description": "Dies ist die About-Seite"
+    }
+  }
+}

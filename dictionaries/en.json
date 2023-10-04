@@ -1,0 +1,27 @@
+{
+  "navigation": {
+    "home": "Home",
+    "product": "Product",
+    "blog": "Blog",
+    "about": "About Us",
+    "contact": "Contact",
+    "customize": "Customize"
+  },
+  "page": {
+    "home": {
+      "title": "Welcome",
+      "description": "Internationalisierung im NextJs 13 App-Router",
+      "whyus": "Why choose us?",
+      "refund": "Refund",
+      "refunddesc": "Return or refund if the product is damaged or not as described in the posted product image",
+      "shipping": "Delivery",
+      "shippingdesc": "Delivery ensures food hygiene and safety quality, fast delivery and careful and sturdy packaging",
+      "help": "Support",
+      "helpdesc": "Enthusiastic customer care and solve problems as quickly as possible."
+    },
+    "about": {
+      "title": "About Us",
+      "description": "This is the about page"
+    }
+  }
+}

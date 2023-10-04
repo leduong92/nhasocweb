@@ -10,14 +10,11 @@ import Link from 'next/link'
 import DarkModeToggle from '../DarkModeToggle'
 import LogoLink from './logo-link'
 import Search from './search'
+import { Locale } from '@/i18n.config'
+import { NavLinkProps } from '@/lib'
 
-type LinkProps = {
-    id: number,
-    title: string,
-    url: string,
-}
 
-const Sidebar = ({ links }: { links: LinkProps[] }) => {
+const Sidebar = ({ links, lang }: { links: NavLinkProps[]; lang: Locale }) => {
     return (
         <div className='block md:hidden lg:hidden xl:hidden' >
             <Sheet key="left">
@@ -28,7 +25,7 @@ const Sidebar = ({ links }: { links: LinkProps[] }) => {
                 </SheetTrigger>
                 <SheetContent side="left">
 
-                    <LogoLink />
+                    <LogoLink lang={lang} />
 
                     <div className='flex flex-col pt-2 gap-2 border-t'>
 

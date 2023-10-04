@@ -5,8 +5,9 @@ import NewProduct from "./new-product";
 import NewsLetter from "./news-letter";
 import { getFeatureds, getNewProducts } from "@/lib";
 import { IProduct } from "@/lib/model";
+import { Locale } from "@/i18n.config";
 
-const HomePage = async () => {
+const HomePage = async ({ lang }: { lang: Locale }) => {
 
     const featuredDatas: IProduct[] = await getFeatureds();
     const newProductDatas: IProduct[] = await getNewProducts();
@@ -14,10 +15,10 @@ const HomePage = async () => {
 
     return (
         <div >
-            <Slider />
+            <Slider lang={lang} />
             <Featured products={featureds} />
             <NewProduct products={newProducts} />
-            <NewsLetter />
+            <NewsLetter lang={lang} />
         </div>
     )
 };

@@ -15,6 +15,9 @@ type Props = {
         id: string
     }
 }
+const baseUrl = process.env.NEXT_PUBLIC_URL
+    ? `${process.env.NEXT_PUBLIC_URL}`
+    : 'http://localhost:3000';
 
 export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
     const id = params.id;
@@ -24,9 +27,9 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
     const previousImages = (await parent).openGraph?.images || []
 
     return {
-        metadataBase: new URL(`https://nhasoc.io.vn`),
+        metadataBase: new URL(`${baseUrl}`),
         alternates: {
-            canonical: `https://nhasoc.io.vn/product/${id}`,
+            canonical: `${baseUrl}/product/${id}`,
             languages: {
                 'vi': '/vi'
             }
@@ -34,14 +37,14 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
         title: `Nhà Sóc Store | ` + product.metaTitle,
         description: product.metaDescription,
         applicationName: `Nhà Sóc Store`,
-        authors: [{ name: 'jame' }, { name: 'johson', url: 'https://nhasoc.io.vn' }],
+        authors: [{ name: 'jame' }, { name: 'johson', url: `${baseUrl}` }],
         keywords: product.metaKeyword,
         colorScheme: 'light',
         creator: 'jamejohson',
         openGraph: {
             title: `Nhà Sóc Store | ` + product.metaTitle,
             description: product.metaDescription,
-            url: `https://nhasoc.io.vn`,
+            url: `${baseUrl}`,
             siteName: `Nhà Sóc Store | Official Website`,
             images: [`${product.productImages.find(x => x.isDefault === true)?.url}`, ...previousImages],
             type: 'website',

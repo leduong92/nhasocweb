@@ -2,8 +2,9 @@ import Link from 'next/link';
 import React from 'react';
 import LogoLink from '../navbar/logo-link';
 import { getCategories } from '@/lib';
+import { Locale } from '@/i18n.config';
 
-const Footer = async () => {
+const Footer = async ({ lang }: { lang: Locale }) => {
 
     const categories = await getCategories();
 
@@ -12,7 +13,7 @@ const Footer = async () => {
             <div className='container flex flex-col gap-4 mt-2'>
                 <div className='flex flex-col md:grid md:grid-cols-3 grid-flow-row lg:grid lg:grid-cols-4 xl:grid xl:grid-cols-4 gap-5'>
                     <div className='flex flex-col gap-5'>
-                        <LogoLink />
+                        <LogoLink lang={lang} />
                         <Link href={`/site-map`}>Site map</Link>
                     </div>
                     <div>

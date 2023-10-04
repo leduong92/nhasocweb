@@ -1,11 +1,13 @@
 import NavBar from "@/components/layout/navbar/nav-bar";
-import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "../context/theme-provider";
-import Footer from "@/components/layout/home/footer";
-import GotoTop from "@/components/go-top";
 import { Approvider } from "@/store/globalState";
+import { Locale, i18n } from "@/i18n.config";
+import { ThemeProvider } from "@/context/theme-provider";
+
+import "./globals.css";
+import GotoTop from "@/components/go-top";
+import Footer from "@/components/layout/home/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,19 +25,25 @@ export const metadata: Metadata = {
     },
 };
 
+export async function generateStaticParams() {
+    return i18n.locales.map(locale => ({ lang: locale }))
+}
+
 export default function RootLayout({
     children,
+    params
 }: {
     children: React.ReactNode;
+    params: { lang: Locale }
 }) {
     return (
-        <html lang="en" suppressHydrationWarning>
+        <html lang={params.lang} suppressHydrationWarning>
             <body className={`${inter.className} `}>
                 <Approvider>
                     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-                        <NavBar />
+                        <NavBar lang={params.lang} />
                         <main className="top-[70px] md:top-[85px] lg:top-[90px] xl:top-[100px] relative">{children}</main>
-                        <Footer />
+                        <Footer lang={params.lang} />
                         <GotoTop />
                     </ThemeProvider>
                 </Approvider>

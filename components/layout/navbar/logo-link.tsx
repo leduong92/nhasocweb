@@ -1,12 +1,14 @@
+import { Locale } from '@/i18n.config'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import Logo from '../../../public/logo.svg'
 
-const LogoLink = () => {
+const LogoLink = ({ lang }: { lang: Locale }) => {
     return (
-        <Link href="/" className='font-bold text-lg w-44 md:w-56 lg:w-68 xl:w-72'>
+        <Link href={`/${lang}`} className='font-bold text-lg w-44 md:w-56 lg:w-68 xl:w-72'>
             <Image
-                src={"/logo.svg"}
+                src={Logo}
                 alt='Nhà Sóc Store'
                 title='Nhà Sóc Store'
                 width={400}

@@ -6,8 +6,9 @@ import { Label } from '../../ui/label'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { imagesSlider } from '@/lib'
+import { Locale } from '@/i18n.config'
 
-const Slider = () => {
+const Slider = ({ lang }: { lang: Locale }) => {
     const [loading, setLoading] = useState(true);
     const [currentSlide, setCurrentSlide] = useState(0);
     const router = useRouter();

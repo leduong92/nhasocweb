@@ -7,7 +7,6 @@ import ResultCount from '@/components/layout/search/filter/result-cout';
 import Pagination from '@/components/layout/search/pagination/pagination';
 import { getCollectionProducts } from '@/lib';
 
-
 export const runtime = 'edge';
 
 export default async function CategoryPage({

@@ -1,6 +1,7 @@
 import HomePage from "@/components/layout/home/home";
+import { Locale } from "@/i18n.config";
+import { getDictionary } from "@/lib/dictionary";
 import { Metadata } from "next";
-import Head from "next/head";
 
 export const metadata: Metadata = {
     title: "Nhà Sóc Store | Official Website",
@@ -44,10 +45,11 @@ export const metadata: Metadata = {
     }
 };
 
-export default function Home() {
+export default async function Home({ params: { lang } }: { params: { lang: Locale } }) {
+
     return (
         <div>
-            <HomePage />
+            <HomePage lang={lang} />
         </div>
     );
 }
